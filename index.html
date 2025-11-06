@@ -3,119 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpticsLab228 - 高速流動研究室ホームページ</title>
+    <title>高速流動研究室ホームページ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#004080',
+                        'secondary-gray': '#f4f4f4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+        /* スムーズスクロールを有効にする */
+        html {
+            scroll-behavior: smooth;
         }
-        header {
-            background: #004080;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background: #f4f4f4;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #004080;
-            font-weight: bold;
-        }
-        section {
-            padding: 20px;
+        /* セクション間のマージンを設定 */
+        .section-container {
             max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            color: #004080;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-        }
-        footer {
-            background: #004080;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1rem;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>高速流動研究室</h1>
-        <p>超音速流れの可視化と衝撃波現象の定量解析</p>
+<body class="bg-white font-sans text-gray-800">
+
+    <!-- Header & Navigation (固定ヘッダー) -->
+    <header class="sticky top-0 z-50 bg-primary-blue shadow-lg">
+        <div class="section-container flex justify-between items-center py-4 px-4 sm:px-6">
+            <h1 class="text-2xl font-bold text-white tracking-wider">
+                OptiFlow Lab
+            </h1>
+            <!-- Nav Menu Button (モバイル用) -->
+            <button id="menu-button" class="sm:hidden p-2 rounded-md hover:bg-white/10 transition">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            
+            <!-- Navigation Links (デスクトップ用) -->
+            <nav class="hidden sm:flex space-x-6">
+                <a href="#home" class="text-white hover:text-yellow-300 transition duration-300 font-medium">ホーム</a>
+                <a href="#members" class="text-white hover:text-yellow-300 transition duration-300 font-medium">メンバー</a>
+                <a href="#facilities" class="text-white hover:text-yellow-300 transition duration-300 font-medium">実験設備</a>
+                <a href="#research" class="text-white hover:text-yellow-300 transition duration-300 font-medium">研究テーマ</a>
+                <a href="#publications" class="text-white hover:text-yellow-300 transition duration-300 font-medium">論文・業績</a>
+                <a href="#career" class="text-white hover:text-yellow-300 transition duration-300 font-medium">進路・就職先</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 transition duration-300 font-medium">お問い合わせ</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="#members">メンバー</a>
-         <a href="#experimental facilities">実験設備</a>
-        <a href="#research">研究テーマ</a>
-        <a href="#publications">論文・業績</a>
-        <a href="#graduate destinations">進学・就職先</a>
-        <a href="#contact">お問い合わせ</a>
+    <!-- Mobile Menu (非表示の状態) -->
+    <nav id="mobile-menu" class="hidden fixed inset-x-0 top-[68px] bg-primary-blue bg-opacity-95 z-40 shadow-xl sm:hidden">
+        <div class="flex flex-col p-4 space-y-2">
+            <a href="#home" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">ホーム</a>
+            <a href="#members" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">メンバー</a>
+            <a href="#facilities" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">実験設備</a>
+            <a href="#research" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">研究テーマ</a>
+            <a href="#publications" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">論文・業績</a>
+            <a href="#career" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">進路・就職先</a>
+            <a href="#contact" class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center">お問い合わせ</a>
+        </div>
     </nav>
 
-　　 <section id="members">
-        <h2>メンバー</h2>
-        <p>教授：宮里 義昭</p>
-　　　　　<p>准教授：仲尾 晋一郎</p>
-        <p>博士後期課程：7名、博士前期課程：12名、学部生：5名</p>
+    <!-- 1. ホーム画面 (ファーストビュー) -->
+    <section id="home" class="section-container min-h-screen pt-10 sm:pt-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="lg:order-2">
+                <!-- 研究室を表現する画像 (プレースホルダーを使用) -->
+                <img src="https://placehold.co/800x500/004080/FFFFFF?text=High+Speed+Flow+Research+" 
+                     alt="高速流動研究室のイメージ画像" 
+                     class="w-full h-auto object-cover rounded-xl shadow-2xl border-4 border-primary-blue/50">
+            </div>
+            <div class="lg:order-1">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-primary-blue mb-4 leading-tight">
+                    高速流動研究室
+                </h2>
+                <p class="text-xl sm:text-2xl text-gray-600 mb-6 font-light">
+                    超音速流れの可視化と衝撃波現象の定量解析
+                </p>
+                
+                <!-- 研究内容の紹介文 -->
+                <p class="text-lg mb-8">
+                    私たちの研究室では、航空宇宙工学やエネルギー分野で重要となる「高速流動現象」に焦点を当て、衝撃波、超音速噴流、遷音速流れの挙動を詳細に解析しています。最先端の光学計測技術を駆使し、目に見えない流れを「可視化」し、その謎を解明することで、次世代の航空機開発や環境技術への貢献を目指しています。
+                </p>
+                <a href="#research" class="inline-block px-8 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105">
+                    研究テーマを見る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. メンバー -->
+    <section id="members" class="section-container bg-secondary-gray rounded-xl shadow-inner my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">メンバー</h2>
+        <div class="space-y-4">
+            <p><strong class="text-xl text-primary-blue">教授：</strong> 宮里 義昭</p>
+            <p><strong class="text-xl text-primary-blue">准教授：</strong> 仲尾 晋一郎</p>
+            <p class="text-lg">博士後期課程：7名、博士前期課程：12名、学部生：5名</p>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">詳細なメンバーリストや研究室の日常は、準備中です。</p>
     </section>
     
-    <section id="experimental facilities">
-        <h2>実験設備</h2>
-        <p>吹出式超音速風洞</p>
-        <p>吸込式式超音速風洞</p>
-        <p>Z型シュリーレン光学系</p>
-　　　　 <p>レインボーシュリーレン光学系</p>
-        <p>マッハ・ツェンダー干渉計</p>
-        <p>トワイマン・グリーン干渉計</p>
+    <!-- 3. 実験設備 -->
+    <section id="facilities" class="section-container my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">実験設備</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ul class="list-disc list-inside space-y-2 text-lg pl-4">
+                <li>吹出式超音速風洞</li>
+                <li>吸込式超音速風洞</li>
+                <li>Z型シュリーレン光学系</li>
+            </ul>
+             <ul class="list-disc list-inside space-y-2 text-lg pl-4">
+                <li>レインボーシュリーレン光学系</li>
+                <li>マッハ・ツェンダー干渉計</li>
+                <li>トワイマン・グリーン干渉計</li>
+            </ul>
+        </div>
     </section>
     
-    <section id="research">
-        <h2>研究テーマ</h2>
-        <ul>
-            <li>超音速噴流からのスクリーチ騒音のパッシブ制御</li>
-            <li>遷音速ディフューザにおける衝撃波の振動現象の解明</li>
-            <li>非軸対称ノズルからの不足膨張噴流の三次元構造解析</li>
-            <li>広がり管内における不安定な衝撃波の挙動解析</li>
-            <li>白色光を用いたシングルショット位相シフト干渉計の開発</li>
+    <!-- 4. 研究テーマ -->
+    <section id="research" class="section-container bg-secondary-gray rounded-xl shadow-inner my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">研究テーマ</h2>
+        <ul class="space-y-4 list-disc list-outside pl-6 text-lg">
+            <li class="p-2 bg-white rounded-lg shadow-sm">超音速噴流からのスクリーチ騒音のパッシブ制御</li>
+            <li class="p-2 bg-white rounded-lg shadow-sm">遷音速ディフューザにおける衝撃波の振動現象の解明</li>
+            <li class="p-2 bg-white rounded-lg shadow-sm">非軸対称ノズルからの不足膨張噴流の三次元構造解析</li>
+            <li class="p-2 bg-white rounded-lg shadow-sm">広がり管内における不安定な衝撃波の挙動解析</li>
+            <li class="p-2 bg-white rounded-lg shadow-sm">白色光を用いたシングルショット位相シフト干渉計の開発</li>
         </ul>
     </section>
 
-    <section id="publications">
-        <h2>論文・業績</h2>
-        <p><a href="https://scholar.google.jp/citations?user=jQnfgkAAAAAJ&hl=en&oi=sra" target="_blank">Google Scholarのページ</a></p>
-        <p><a href="https://researchmap.jp/read20230501/?lang=japanese" target="_blank">Researchmapのページ</a></p>
+    <!-- 5. 論文・業績 -->
+    <section id="publications" class="section-container my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">論文・業績</h2>
+        <div class="flex flex-col space-y-4 text-lg">
+            <a href="https://scholar.google.jp/citations?user=jQnfgkAAAAAJ&hl=en&oi=sra" target="_blank" class="flex items-center space-x-2 text-primary-blue hover:text-red-600 transition duration-300 font-medium">
+                <!-- Google Scholar Icon (Lucide-react equivalent: external-link) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-2l6-6m0 0H14m2 0v20"></path></svg>
+                <span>Google Scholar (外部サイトへ)</span>
+            </a>
+            <a href="https://researchmap.jp/read20230501/?lang=japanese" target="_blank" class="flex items-center space-x-2 text-primary-blue hover:text-red-600 transition duration-300 font-medium">
+                <!-- Researchmap Icon (Lucide-react equivalent: external-link) -->
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-2l6-6m0 0H14m2 0v20"></path></svg>
+                <span>Researchmap (外部サイトへ)</span>
+            </a>
+        </div>
     </section>
 
-    <section id="graduate destinations">
-        <h2>進学・就職先</h2>
-        <p>進学先：北九大、九工大、九大、名大、東工大</p>
-　　　　　<p>就職先：三井ハイテック、日本製鉄、日鉄エンジニアリング、高田工業所、産機エンジニアリング、安川電機、マツダ、SUBARU、トヨタ自動車、ダイハツ工業、日立製作所、JR東海、川崎重工業、カワサキモータース、ANA、JAXA、キヤノン、三菱電機、ヤンマー、大和ハウス、日揮、産総研など</p>
+    <!-- 6. 進路・就職先 (統合) -->
+    <section id="career" class="section-container bg-secondary-gray rounded-xl shadow-inner my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">進路・就職先</h2>
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-2xl font-semibold text-primary-blue mb-2">進学先 (大学院)</h3>
+                <p class="text-lg">北九大、九工大、九大、名大、東工大 など</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold text-primary-blue mb-2">主な就職先 (企業名)</h3>
+                <div class="text-lg grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <!-- 企業リストを整理して表示 -->
+                    <span class="bg-white p-2 rounded-md shadow-sm">三井ハイテック</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">日本製鉄</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">日鉄エンジニアリング</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">高田工業所</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">産機エンジニアリング</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">安川電機</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">マツダ</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">SUBARU</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">トヨタ自動車</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">ダイハツ工業</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">日立製作所</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">JR東海</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">川崎重工業</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">カワサキモータース</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">ANA</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">JAXA</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">キヤノン</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">三菱電機</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">ヤンマー</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">大和ハウス</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">日揮</span>
+                    <span class="bg-white p-2 rounded-md shadow-sm">産総研</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    
-    <section id="contact">
-        <h2>お問い合わせ</h2>
-         <p>住所: 〒808-0135　北九州市若松区ひびきの１－１ 北九州市立大学国際環境工学部機械システム工学科</p>
-         <p>E-mail: 準備中</p>
-       
+    <!-- 7. お問い合わせ -->
+    <section id="contact" class="section-container my-10">
+        <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">お問い合わせ</h2>
+        <div class="space-y-4 text-lg">
+             <p><strong>住所:</strong> 〒808-0135　北九州市若松区ひびきの１－１ <br class="sm:hidden">北九州市立大学国際環境工学部機械システム工学科</p>
+             <p><strong>E-mail:</strong> <span class="text-red-500 font-medium">現在準備中</span></p>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 OpticsLab228. All rights reserved.</p>
+    <footer class="bg-primary-blue text-white text-center py-6">
+        <p class="text-sm">&copy; 2025 OptiFlow Lab. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            // メニューの開閉
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // リンクをクリックしたときにメニューを閉じる
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 進学・就職先のアンカーIDを修正（以前の進学・就職先へのリンクを修正）
+            document.querySelectorAll('nav a[href="#graduate destinations"], nav a[href="#career"]').forEach(link => {
+                if (link.getAttribute('href') === '#graduate destinations') {
+                    link.setAttribute('href', '#career');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
