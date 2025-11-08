@@ -134,16 +134,24 @@
 </ul>
 </div> 
 </section>
+
 <section class="section-container bg-secondary-gray rounded-xl shadow-inner my-10" id="research">
 <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">研究テーマ</h2>
-<ul class="space-y-4 list-disc list-outside pl-6 text-lg">
-           
-　　　　　
+<ul class="space-y-4 list-disc list-outside pl-6 text-lg">　
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
-              <p class="block text-primary-blue font-medium">
-       　　　　 超音速噴流からのスクリーチ騒音のパッシブ制御
-   　　　　　 </p>
+              <button id="toggle-paper-1" class="w-full text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none">
+       　　　　 超音速噴流からのスクリーチ騒音のパッシブ制御 (論文を見る 🔽)
+   　　　　　 </button>
               <img src="RoundJet.gif" alt="不足膨張円形噴流の非定常特性" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+              <div id="paper-list-1" class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg">
+                  <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
+                  <a href="Papers/Tashiro_EIF2023.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Tashiro: EIF 2023 発表論文 [PDF]
+                  </a>
+                  <a href="Papers/Nagata_EIF2022.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Nagata: EIF 2022 発表論文 [PDF]
+                  </a>
+              </div>
 　　　　　</li>
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
               <p class="block text-primary-blue font-medium">
@@ -162,7 +170,7 @@
 <li class="p-2 bg-white rounded-lg shadow-sm">白色光を用いたシングルショット位相シフト干渉計の開発（新テーマ）</li>
 </ul>        
 </section>
-        
+
 <section class="section-container my-10" id="publications">
 <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">論文・業績</h2>
 <div class="flex flex-col space-y-4 text-lg">
@@ -229,6 +237,7 @@
 <footer class="bg-primary-blue text-white text-center py-6">
 <p class="text-sm">© 2025 OptiFlow Lab. All rights reserved.</p>
 </footer>
+        
 <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuButton = document.getElementById('menu-button');
@@ -255,10 +264,31 @@
                     link.setAttribute('href', href === '#home' ? '#home-hero' : '#career');
                 }
             });
+            
+            // --- 研究テーマの論文リスト表示機能の追加 ---
+            const toggleButton1 = document.getElementById('toggle-paper-1');
+            const paperList1 = document.getElementById('paper-list-1');
+
+            if (toggleButton1 && paperList1) {
+                toggleButton1.addEventListener('click', () => {
+                    // hiddenクラスをトグル（表示/非表示を切り替え）
+                    paperList1.classList.toggle('hidden');
+
+                    // ボタンのテキストを切り替え
+                    const isHidden = paperList1.classList.contains('hidden');
+                    if (isHidden) {
+                        toggleButton1.innerHTML = '超音速噴流からのスクリーチ騒音のパッシブ制御 (論文を見る 🔽)';
+                    } else {
+                        toggleButton1.innerHTML = '超音速噴流からのスクリーチ騒音のパッシブ制御 (論文を隠す 🔼)';
+                    }
+                });
+            }
+            // ----------------------------------------
         });
     </script>
 </body>
 </html>
+
 
 
 
