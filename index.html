@@ -21,42 +21,88 @@
             }
         }
     </script>
+
 <style>
-        /* スムーズスクロールを有効にする */
-        html {
-            scroll-behavior: smooth;
+    /* スムーズスクロールを有効にする */
+    html {
+        scroll-behavior: smooth;
+    }
+    /* セクション間のマージンを設定 */
+    .section-container {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem 1rem;
+    }
+    /* [修正] トップページの背景とテキストオーバーレイ用スタイル */
+    #home-hero {
+        background: url('MZIvsRSD.png') no-repeat right center;
+        background-size: cover;
+        /* 画面いっぱいに広げる */
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative; /* オーバーレイのための設定 */
+        /* --- [追加] 簡単なパララックス効果 --- */
+        background-attachment: fixed;
+    }
+    /* 背景画像の上に重ねる半透明のオーバーレイ */
+    #home-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4); /* 黒の半透明 (40%) */
+        z-index: 1;
+    }
+
+    /* --- [追加] 虹色アニメーションのCSS --- */
+    #rainbow-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2; /* 背景画像オーバーレイ(z-index: 1)よりも上に配置 */
+        opacity: 0.15; /* 透明度を低く設定して、下の画像が見えるようにする */
+        pointer-events: none; /* クリックやタッチ操作を透過させる */
+
+        /* 非常に大きな虹色グラデーションを定義 */
+        background: linear-gradient(
+            -45deg,
+            #ff0000, /* 赤 */
+            #ff7f00, /* 橙 */
+            #ffff00, /* 黄 */
+            #00ff00, /* 緑 */
+            #0000ff, /* 青 */
+            #4b0082, /* 藍 */
+            #9400d3  /* 紫 */
+        );
+        background-size: 400% 400%; /* 背景サイズを大きくし、アニメーションで移動させる */
+        /* アニメーションの適用: アニメーション名, 速度, イージング, 無限ループ */
+        animation: flowingRainbow 15s ease infinite;
+        /* 背景画像とのブレンドモードを試す（optional） */
+        /* mix-blend-mode: overlay; */
+    }
+
+    /* --- [追加] 虹色を流すアニメーションの定義 --- */
+    @keyframes flowingRainbow {
+        0% {
+            background-position: 0% 50%;
         }
-        /* セクション間のマージンを設定 */
-        .section-container {
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 2rem 1rem;
+        50% {
+            background-position: 100% 50%; /* グラデーションの水平位置を移動 */
         }
-        /* [修正] トップページの背景とテキストオーバーレイ用スタイル */
-        #home-hero {
-            background: url('MZIvsRSD.png') no-repeat right center;
-            background-size: cover;
-            /* 画面いっぱいに広げる */
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative; /* オーバーレイのための設定 */
+        100% {
+            background-position: 0% 50%;
         }
-        /* 背景画像の上に重ねる半透明のオーバーレイ */
-        #home-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* 黒の半透明 (40%) */
-            z-index: 1;
-        }
-    </style>
+    }
+</style>
+                
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;display=swap" rel="stylesheet"/>
 </head>
 <body class="bg-white font-sans text-gray-800">
@@ -91,8 +137,13 @@
 <a class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center" href="#contact">お問い合わせ</a>
 </div>
 </nav>
+
 <section class="min-h-screen" id="home-hero">
-<div class="z-10 text-white section-container max-w-4xl">
+    <div id="rainbow-overlay"></div> 
+    <div class="z-10 text-white section-container max-w-4xl">
+        </div>
+</section>
+       
 <div class="p-8 sm:p-10 rounded-xl">
 <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight text-shadow-lg" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                     高速気体力学研究室
@@ -288,6 +339,7 @@
     </script>
 </body>
 </html>
+
 
 
 
