@@ -43,7 +43,46 @@
         font-weight: 700 !important;       /* 太字を適用 */
         font-style: normal !important;     /* 念のため italic を解除 */
     }  
+
+　　/* === [追加] ナビゲーションバーの強化 === */
+    /* 背景の雰囲気を残すため、半透明の黒とぼかし（ブルーム）効果を適用 */
+    #main-nav {
+        background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
+        /* 背景の虹色や衝撃波が透けて見えるような効果 */
+        backdrop-filter: blur(8px); 
+        -webkit-backdrop-filter: blur(8px); /* Safari対応 */
+        border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
+    }
+    
+    /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
+    #main-nav a {
+        font-family: 'Cinzel', serif !important;
+        font-weight: 600 !important;
+        color: #fff !important; /* テキストは白で統一 */
+    }
+
+    /* === [修正] セクションタイトルの強化 (h2) === */
+    /* メンバー、実験設備などの見出しに適用 */
+    .section-container > h2 {
+        /* フォントはCinzel（CSSで既に指定済） */
+        font-size: 2.5rem !important; /* サイズを大きく */
+        font-weight: 900 !important; /* 極太 */
+        color: #004080 !important; /* プライマリーブルー */
+        text-align: center !important; /* 中央揃えで荘厳に */
+        letter-spacing: 0.15em !important; /* 文字間隔を広げ、芸術的な印象を強化 */
         
+        /* 強力な二重線でセパレーターを引く */
+        border-bottom: 4px double #004080 !important; 
+        padding-bottom: 1rem !important;
+        margin-bottom: 3rem !important; /* 下部のマージンを広く */
+    }
+    
+    /* === [調整] 既存のプライマリーカラーをより強く === */
+    .text-primary-blue {
+        color: #004080 !important;
+        font-weight: 600 !important;
+    }
+ 
     /* スムーズスクロールを有効にする */
     html {
         scroll-behavior: smooth;
@@ -366,6 +405,7 @@
     </script>
 </body>
 </html>
+
 
 
 
