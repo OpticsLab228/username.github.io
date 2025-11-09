@@ -82,6 +82,14 @@
         color: #004080 !important;
         font-weight: 600 !important;
     }
+
+　　　/* === [追加] キャッチコピーのLowercase表示 === */
+    /* ホーム画面のキャッチコピーのh2要素に適用されるCSS */
+    #home-hero .section-container h2 {
+        /* 全て小文字化（Cinzelフォントの大文字感を抑える）*/
+        text-transform: lowercase !important; 
+   　　　　 }
+　　}
  
     /* スムーズスクロールを有効にする */
     html {
@@ -203,9 +211,12 @@
        <div class="z-10 text-white section-container max-w-4xl">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">High Speed Gasdynamics Lab</h1>
         <p id="motto-text" class="text-2xl sm:text-3xl mb-8">Witness the Invisible</p>
-        <h2 class="text-xl sm:text-2xl font-semibold border-t-2 border-b-2 border-white py-4 inline-block mx-auto">
-            Cutting-Edge Visualization: Quantifying Shock Wave Phenomena with World-Class Optical Diagnostics.
-        </h2>
+        
+       
+　　　　<h2 class="text-sm sm:text-base font-semibold border-t-2 border-b-2 border-white py-4 inline-block mx-auto">
+  　　　　  Cutting-Edge Visualization: Quantifying Shock Wave Phenomena with World-Class Optical Diagnostics.
+　　　　</h2>
+        
     </div> 
 </section>
        
@@ -405,6 +416,7 @@
     </script>
 </body>
 </html>
+
 
 
 
