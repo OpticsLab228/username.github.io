@@ -7,7 +7,8 @@
 <title>高速気体力学研究室ホームページ</title>
 <script src="https://cdn.tailwindcss.com"></script>
  
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+<!-- Cinzel Decorative (タイトル用) を使用 -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cinzel+Decorative:wght@400;700;900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
         
 <script>
@@ -27,24 +28,94 @@
     </script>
 
 <style>
-    /* ... 既存のCSSコード（スムーズスクロール、セクションコンテナなど）はそのまま ... */
-    /* === [修正] 全体フォントとモットーのフォント指定 === */
-    /* メインタイトルとキャッチコピーに芸術的なフォント 'Cinzel' を適用 */
-    /* モニュメンタルで力強い印象を与えます */
-    .section-container h1, 
-    .section-container h2 {
-        font-family: 'Cinzel', serif; 
-        font-weight: 700;
+    /* スムーズスクロールを有効にする */
+    html {
+        scroll-behavior: smooth;
     }
-    /* モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 */
+    /* セクション間のマージンを設定 */
+    .section-container {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem 1rem;
+    }
+    
+    /* === [最終調整] トップページタイトル(h1)にCinzel Decorativeを適用し、スモールキャップス風に === */
+    #home-hero h1 { 
+        font-family: 'Cinzel Decorative', serif !important; /* より装飾的でエレガントなフォント */
+        font-weight: 900 !important; /* 最も太いウェイト */
+        text-transform: uppercase; /* 全て大文字化 */
+        
+        /* 文字間隔を詰める（負の値） */
+        letter-spacing: -0.05em !important; 
+        
+        white-space: nowrap; /* 1行を維持 */
+        
+        /* サイズを維持 */
+        font-size: 1.75rem; /* モバイル */
+    }
+    
+    /* デスクトップサイズでのサイズ調整 */
+    @media (min-width: 640px) { /* sm:breakpoint */
+        #home-hero h1 {
+            /* サイズを維持 */
+            font-size: 3rem; 
+        }
+    }
+    
+    /* [変更点] 最初の文字だけ大きくする倍率を1.8倍に増やし、続く文字が一段と小さく見えるようにする */
+    #home-hero h1 span::first-letter {
+        font-size: 1.8em; /* 最初の文字だけ1.8倍に */
+        line-height: 1; /* 行の高さを調整 */
+        margin-right: -0.1em; /* わずかに間隔を詰める */
+    }
+
+
+    /* === セクションタイトル(h2)にはCinzelを適用 (キャッチコピーh2は除く) === */
+    /* メンバー、実験設備などの見出しに適用 */
+    .section-container > h2:not(.catchphrase-text) {
+        font-family: 'Cinzel', serif !important; 
+        font-weight: 900 !important; /* 極太 */
+        color: #004080 !important; /* プライマリーブルー */
+        text-align: center !important; /* 中央揃えで荘厳に */
+        letter-spacing: 0.15em !important; /* 文字間隔を広げ、芸術的な印象を強化 */
+        
+        /* 強力な二重線でセパレーターを引く */
+        border-bottom: 4px double #004080 !important; 
+        padding-bottom: 1rem !important;
+        margin-bottom: 3rem !important; /* 下部のマージンを広く */
+        font-size: 2.5rem !important; /* サイズを大きく */
+    }
+
+    /* === キャッチコピー専用のフォントと配置 === */
+    /* キャッチコピーのテキストは左揃えを維持 */
+    .section-container h2.catchphrase-text {
+        font-family: Helvetica, Arial, sans-serif !important; 
+        text-transform: none !important; 
+        /* text-align: left !important; は削除し、親のtext-centerを継承させる */
+
+        /* [修正点] 文字サイズを大きく (モバイル: text-lg相当) */
+        font-size: 1.125rem !important; 
+    }
+    /* デスクトップサイズでのサイズ調整 */
+    @media (min-width: 640px) { /* sm:breakpoint */
+        .section-container h2.catchphrase-text {
+            /* [修正点] デスクトップでさらに大きく (text-2xl相当) */
+            font-size: 1.5rem !important; 
+        }
+    }
+
+
+    /* モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 (最優先) */
     #motto-text {
-        font-family: 'Tangerine', cursive; /* 繊細でエレガントな筆記体を適用 */
+        font-family: 'Tangerine', cursive !important; /* 繊細でエレガントな筆記体を適用 */
         font-size: 4rem !important;        /* サイズを大きくし、エレガントさを強調 */
         font-weight: 700 !important;       /* 太字を適用 */
-        font-style: normal !important;     /* 念のため italic を解除 */
+        font-style: normal !important;     
+        text-align: center; /* 中央揃えを維持 */
     }  
 
-　　/* === [追加] ナビゲーションバーの強化 === */
+　　/* === ナビゲーションバーの強化 === */
     /* 背景の雰囲気を残すため、半透明の黒とぼかし（ブルーム）効果を適用 */
     #main-nav {
         background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
@@ -61,21 +132,6 @@
         color: #fff !important; /* テキストは白で統一 */
     }
 
-    /* === [修正] セクションタイトルの強化 (h2) === */
-    /* メンバー、実験設備などの見出しに適用 */
-    .section-container > h2 {
-        /* フォントはCinzel（CSSで既に指定済） */
-        font-size: 2.5rem !important; /* サイズを大きく */
-        font-weight: 900 !important; /* 極太 */
-        color: #004080 !important; /* プライマリーブルー */
-        text-align: center !important; /* 中央揃えで荘厳に */
-        letter-spacing: 0.15em !important; /* 文字間隔を広げ、芸術的な印象を強化 */
-        
-        /* 強力な二重線でセパレーターを引く */
-        border-bottom: 4px double #004080 !important; 
-        padding-bottom: 1rem !important;
-        margin-bottom: 3rem !important; /* 下部のマージンを広く */
-    }
     
     /* === [調整] 既存のプライマリーカラーをより強く === */
     .text-primary-blue {
@@ -83,23 +139,7 @@
         font-weight: 600 !important;
     }
     
-    /* === [修正] キャッチコピーの行間を強制的に広げるためのカスタムクラス (削除) === */
-    /* 行間が広がりすぎるため、カスタムクラス .u-super-relaxed-line を削除し、標準の Tailwind クラスを使用します。 */
-    /* ------------------------------------------------------------- */
-
-
-    /* スムーズスクロールを有効にする */
-    html {
-        scroll-behavior: smooth;
-    }
-    /* セクション間のマージンを設定 */
-    .section-container {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 2rem 1rem;
-    }
-    /* [修正] トップページの背景とテキストオーバーレイ用スタイル */
+    /* トップページの背景とテキストオーバーレイ用スタイル */
     #home-hero {
         background: url('BG.png') no-repeat right center;
         background-size: cover;
@@ -107,7 +147,7 @@
         height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center; /* 中央揃えに戻す */
         text-align: center;
         position: relative; /* オーバーレイのための設定 */
         /* --- [追加] 簡単なパララックス効果 --- */
@@ -125,7 +165,7 @@
         z-index: 1;
     }
 
-    /* --- [追加] 虹色アニメーションのCSS --- */
+    /* --- 虹色アニメーションのCSS --- */
     #rainbow-overlay {
         position: absolute;
         top: 0;
@@ -150,11 +190,9 @@
         background-size: 400% 400%; /* 背景サイズを大きくし、アニメーションで移動させる */
         /* アニメーションの適用: アニメーション名, 速度, イージング, 無限ループ */
         animation: flowingRainbow 15s ease infinite;
-        /* 背景画像とのブレンドモードを試す（optional） */
-        /* mix-blend-mode: overlay; */
     }
 
-    /* --- [追加] 虹色を流すアニメーションの定義 --- */
+    /* --- 虹色を流すアニメーションの定義 --- */
     @keyframes flowingRainbow {
         0% {
             background-position: 0% 50%;
@@ -168,7 +206,6 @@
     }
 </style>
                 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;display=swap" rel="stylesheet"/>
 </head>
 <body class="bg-white font-sans text-gray-800">
 
@@ -178,7 +215,7 @@
                 High Speed Gasdynamics Lab
             </h1>
 <button class="sm:hidden p-2 rounded-md hover:bg-white/10 transition" id="menu-button">
-<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 <nav class="hidden sm:flex space-x-6">
 <a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#home-hero">ホーム</a>
@@ -205,37 +242,40 @@
 
 <section class="min-h-screen" id="home-hero">
     <div id="rainbow-overlay"></div> 
-       <div class="z-10 text-white section-container max-w-4xl">
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">High Speed Gasdynamics Lab</h1>
-        <p id="motto-text" class="text-2xl sm:text-3xl mb-8">Witness the Invisible</p>
-        
-       
-　　　　<!-- 修正箇所: フォントサイズをさらに縮小 (text-sm sm:text-lg) し、文字色を明示的に白色 (text-white) に変更しました。 -->
-　　　　  
-<h2 class="relative z-10 text-white text-xs sm:text-sm font-semibold border-t border-b border-white py-2 px-4 inline-block mx-auto leading-tight normal-case text-center drop-shadow-lg max-w-screen-md">
-  Cutting-Edge Visualization: Quantifying Shock Wave Phenomena<br>
-  with World-Class Optical Diagnostics.
-</h2>
-
-        
-    </div> 
-</section>
-       
-<div class="p-8 sm:p-10 rounded-xl">
-<h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight text-shadow-lg" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+       <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full">
+            <!-- [修正適用] タイトル：Cinzel Decorativeを適用し、スモールキャップス風の倍率を1.8倍に -->
+            <h1 class="font-extrabold mb-4 w-full">
+                <span>High</span> <span>Speed</span> <span>Gasdynamics</span> <span>Lab</span>
+            </h1>
+            
+            <!-- モットー: Tangerineフォント、中央揃えを維持 -->
+            <p id="motto-text" class="text-2xl sm:text-3xl mb-8 w-full">Witness the Invisible</p>
+            
+            <!-- Catchphrase container (max-width-xlを削除し、親要素の幅に合わせる) -->
+            <div class="flex flex-col mx-auto w-full">
+                <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
+                    Cutting-Edge Visualization: Quantifying Shock Wave Phenomena<br>with World-Class Optical Diagnostics.
+                </h2>
+            </div>
+            
+            <!-- 研究室名称と紹介文 -->
+            <!-- [変更点] text-leftをtext-centerに変更し、日本語タイトルとキャッチコピーを中央揃えにする -->
+            <div class="mt-8 p-8 sm:p-10 rounded-xl w-full bg-black/40 text-center">
+                <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                     高速気体力学研究室
                 </h2>
-<p class="text-xl sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                <p class="text-xl sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                     超音速流れの可視化と衝撃波現象の定量解析
                 </p>
-<p class="text-lg mb-8 bg-black/30 p-4 rounded-lg">
-                    私たちの研究室では、航空宇宙工学やエネルギー分野で重要となる「高速流動現象」に焦点を当て、衝撃波、超音速噴流、遷音速流れの挙動を詳細に解析しています。最先端の光学計測技術を駆使し、目に見えない流れを「可視化」し、その謎を解明することで、次世代の航空機開発や環境技術への貢献を目指しています。
+                <!-- [変更点] 説明文は可読性のためtext-leftを明示的に指定 -->
+                <p class="text-lg mb-8 bg-black/30 p-4 rounded-lg text-left">
+                    私たちの研究室では、航空宇宙工学やエネルギー分野で重要となる「高速流動現象」に焦点を当て、衝撃波、超音速噴流、遷音速流れの挙動を詳細に解析しています。最先端の光学計測技術を駆使し、目に見えない流れを「可視化」し、その謎を解明することで、次世代の航空機開発や環境技術への貢献を目指します。
                 </p>
-<a class="inline-block px-8 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105" href="#research">
+                <a class="inline-block px-8 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105" href="#research">
                     研究テーマを見る
                 </a>
-</div>
-</div>
+            </div>
+        </div>
 </section>
 
 <section class="section-container bg-secondary-gray rounded-xl shadow-inner my-10" id="members">
@@ -314,7 +354,7 @@
 </div>
 </section>
 <section class="section-container bg-secondary-gray rounded-xl shadow-inner my-10" id="career">
-<h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">進路・就職先</h2>
+<h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">進路・就職先  </h2>
 <div class="space-y-6">
 <div>
 <h3 class="text-2xl font-semibold text-primary-blue mb-2">進学先 (大学院)</h3>
@@ -357,7 +397,7 @@
 </div>
 </section>
 <section class="section-container my-10" id="contact">
-<h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">お問い合わせ</h2>
+<h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">お問い合わせ </h2>
 <div class="space-y-4 text-lg">
 <p><strong>住所:</strong> 〒808-0135　北九州市若松区ひびきの１－１ <br class="sm:hidden"/>北九州市立大学国際環境工学部機械システム工学科</p>
 <p><strong>E-mail:</strong> <span class="text-red-500 font-medium">準備中</span></p>
@@ -417,6 +457,3 @@
     </script>
 </body>
 </html>
-
-
-
