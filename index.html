@@ -82,6 +82,11 @@
         color: #004080 !important;
         font-weight: 600 !important;
     }
+    
+    /* === [修正] キャッチコピーの行間を強制的に広げるためのカスタムクラス (削除) === */
+    /* 行間が広がりすぎるため、カスタムクラス .u-super-relaxed-line を削除し、標準の Tailwind クラスを使用します。 */
+    /* ------------------------------------------------------------- */
+
 
     /* スムーズスクロールを有効にする */
     html {
@@ -205,8 +210,8 @@
         <p id="motto-text" class="text-2xl sm:text-3xl mb-8">Witness the Invisible</p>
         
        
-　　　　<!-- 修正箇所: leading-relaxed (行間を広げる) を追加し、デスクトップ表示用に <br> を追加しました -->
-　　　　<h2 class="text-sm sm:text-base font-semibold border-t-2 border-b-2 border-white py-4 inline-block mx-auto leading-relaxed">
+　　　　<!-- 修正箇所: フォントサイズをさらに縮小 (text-sm sm:text-lg) し、文字色を明示的に白色 (text-white) に変更しました。 -->
+　　　　<h2 class="text-sm sm:text-lg font-semibold border-t-2 border-b-2 border-white py-4 inline-block mx-auto leading-snug normal-case text-white">
   　　　　  Cutting-Edge Visualization: Quantifying Shock Wave Phenomena<br class="hidden sm:block">with World-Class Optical Diagnostics.
 　　　　</h2>
         
@@ -234,7 +239,7 @@
 <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">メンバー</h2>
 <div class="space-y-4">
 <p><strong class="text-xl text-primary-blue">教授：</strong> 宮里 義昭</p>
-<p><strong class="text-xl text-primary-blue">准教授：</strong> 仲尾 晋一郎</p>
+<p><strong class="text-xl text-primary-blue">准教授：：</strong> 仲尾 晋一郎</p>
 <p class="text-lg">博士後期課程：7名、博士前期課程：12名、学部生：5名</p>
 </div>
 <p class="mt-4 text-sm text-gray-500">詳細なメンバーリストや研究室の日常は、準備中です。</p>
