@@ -92,7 +92,7 @@
 
         /* === ナビゲーションバーの強化（JavaScript制御版） === */
         header#main-nav-container {
-            /* ✅ 修正箇所: 初期状態を少し暗くして、白背景でも白文字が隠れないようにする */
+            /* スクロールトップでも文字が消えないよう、初期背景を半透明の黒に設定 */
             background-color: rgba(0, 0, 0, 0.3) !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
@@ -223,7 +223,7 @@
             <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                 高速気体力学研究室
             </h2>
-            <p class="text-xl sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+            <p class="text-lg sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                 超音速流れの可視化と衝撃波現象の定量解析
             </p>
             <p class="text-lg mb-8 bg-black/30 p-4 rounded-lg text-justify">
