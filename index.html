@@ -549,10 +549,56 @@
                 });
             }
 // ----------------------------------------
+// --- [追加] 実験設備 画像表示機能の追加 (レインボーシュリーレン) ---
+            const toggleButtonRSD = document.getElementById('toggle-rsd');
+            const imageRSD = document.getElementById('image-rsd');
+
+            if (toggleButtonRSD && imageRSD) {
+                toggleButtonRSD.addEventListener('click', () => {
+                    imageRSD.classList.toggle('hidden');
+                    const isHidden = imageRSD.classList.contains('hidden');
+                    toggleButtonRSD.innerHTML = isHidden 
+                        ? 'レインボーシュリーレン光学系 (写真を見る 🔽)' 
+                        : 'レインボーシュリーレン光学系 (写真を隠す 🔼)';
+                });
+            }
+// ----------------------------------------
+
+// --- [追加] 実験設備 画像表示機能の追加 (マッハ・ツェンダー) ---
+            const toggleButtonMZI = document.getElementById('toggle-mzi');
+            const imageMZI = document.getElementById('image-mzi');
+
+            if (toggleButtonMZI && imageMZI) {
+                toggleButtonMZI.addEventListener('click', () => {
+                    imageMZI.classList.toggle('hidden');
+                    const isHidden = imageMZI.classList.contains('hidden');
+                    toggleButtonMZI.innerHTML = isHidden 
+                        ? 'マッハ・ツェンダー干渉計 (写真を見る 🔽)' 
+                        : 'マッハ・ツェンダー干渉計 (写真を隠す 🔼)';
+                });
+            }
+// ----------------------------------------
+
+// --- [追加] 実験設備 画像表示機能の追加 (トワイマン・グリーン) ---
+            const toggleButtonTGI = document.getElementById('toggle-tgi');
+            const imageTGI = document.getElementById('image-tgi');
+
+            if (toggleButtonTGI && imageTGI) {
+                toggleButtonTGI.addEventListener('click', () => {
+                    imageTGI.classList.toggle('hidden');
+                    const isHidden = imageTGI.classList.contains('hidden');
+                    toggleButtonTGI.innerHTML = isHidden 
+                        ? 'トワイマン・グリーン干渉計 (写真を見る 🔽)' 
+                        : 'トワイマン・グリーン干渉計 (写真を隠す 🔼)';
+                });
+            }
+// ----------------------------------------
+    
         });
     </script>
 </body>
 </html>
+
 
 
 
