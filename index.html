@@ -36,16 +36,40 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            padding: 2rem 1rem;
+            /* 修正点1: 前回設定済みのモバイルでの左右パディングをpx-1に最小化 */
+            padding: 2rem 0.25rem; /* px-1 (0.25rem) を適用 */
+        }
+        /* PCサイズではpaddingを元に戻す */
+        @media (min-width: 640px) {
+            .section-container {
+                padding: 2rem 1rem; /* sm:px-4 (1rem) 相当 */
+            }
         }
         
-        /* === トップページタイトル(h1)にCinzel Decorativeを適用し、スモールキャップス風に === */
+        /* === トップページコンテンツブロックの左右パディングをモバイルでゼロ化 === */
+        /* タイトルとキャッチコピーを囲む黒い半透明のdiv用 */
+        .hero-text-block {
+            /* 上下パディングは維持 (p-4) */
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        /* PCサイズでは通常のパディングに戻す */
+        @media (min-width: 640px) {
+            .hero-text-block {
+                padding-left: 2.5rem !important; /* sm:p-10 (40px) の左右パディングを復元 */
+                padding-right: 2.5rem !important; 
+            }
+        }
+
+        
+        /* === 【修正点2】トップページ英語タイトル(h1)のサイズ調整と装飾 === */
         #home-hero h1 { 
             font-family: 'Cinzel Decorative', serif !important; 
             font-weight: 900 !important; 
             text-transform: uppercase; 
             letter-spacing: -0.05em !important; 
-            font-size: 1.75rem;
+            /* 修正: モバイルサイズを1.75remから2.5remに拡大 */
+            font-size: 2.5rem; 
         }
         @media (min-width: 640px) {
             #home-hero h1 {
@@ -88,11 +112,22 @@
         /* モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 */
         #motto-text {
             font-family: 'Tangerine', cursive !important; 
+            /* モバイルでタイトルより大きく見えるよう4remを維持 */
             font-size: 4rem !important;        
             font-weight: 700 !important;       
             font-style: normal !important;     
             text-align: center; 
+            /* モバイルで大きくなりすぎないよう調整 */
+            line-height: 1; 
         }  
+        @media (min-width: 640px) {
+            #motto-text {
+                /* PCではさらに大きく */
+                font-size: 6rem !important;
+                line-height: 1;
+            }
+        }
+
 
         /* === ナビゲーションバーの強化（JavaScript制御版） === */
         header#main-nav-container {
@@ -215,18 +250,18 @@
     <div class="flex flex-col p-4 space-y-2">
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#home-hero">ホーム</a>
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#members">メンバー</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#facilities">実験設備</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#research">研究テーマ</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#publications">論文・業績</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#career">進路・就職先</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#contact">お問い合わせ</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities">実験設備</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#research">研究テーマ</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications">論文・業績</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#career">進路・就職先</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#contact">お問い合わせ</a>
     </div>
 </nav>
 
 <!-- セクションコンテンツ -->
 <section class="min-h-screen" id="home-hero">
     <div id="rainbow-overlay"></div>
-    <!-- 修正: コンテンツを垂直方向に調整 -->
+    <!-- section-containerの左右パディングはCSSでpx-1に最小化済み -->
     <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full pt-10 sm:pt-0">
         <!-- 英語タイトル (モバイルで2行表示) -->
         <h1 class="font-extrabold mb-4 w-full">
@@ -234,23 +269,26 @@
         </h1>
         <!-- モットー -->
         <p class="text-2xl sm:text-3xl mb-8 w-full" id="motto-text">Witness the Invisible</p>
-        <!-- 英語キャッチコピー (PCでwith以降を2行目に強制改行) -->
+        
+        <!-- 英語キャッチコピー (モバイルで3行改行を強制) -->
         <div class="flex flex-col mx-auto w-full">
+            <!-- 修正点1: モバイル表示で3行に分割するためにbrタグを調整 -->
             <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
-                Cutting-Edge Visualization: Quantifying Shock Wave Phenomena
-                <!-- PC(sm:以降)でのみ改行を挿入 -->
-                <br class="hidden sm:block"/>
+                Cutting-Edge Visualization:
+                <br class="lg:hidden"/>
+                Quantifying Shock Wave Phenomena
+                <br class="lg:hidden"/>
                 with World-Class Optical Diagnostics.
             </h2>
         </div>
         <!-- 研究室名称と紹介文 -->
-        <div class="mt-8 p-6 sm:p-10 rounded-xl w-full bg-black/40 text-center">
-            <!-- 修正: 日本語タイトルをモバイルで小さく -->
+        <div class="mt-8 p-4 sm:p-10 rounded-xl w-full bg-black/40 text-center hero-text-block">
+            <!-- 日本語タイトルはtext-3xl sm:text-6xl で1行に収まることを確認済み -->
             <h2 class="text-3xl sm:text-6xl font-extrabold mb-2 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                 高速気体力学研究室
             </h2>
-            <!-- 修正: 日本語キャッチコピーをモバイルで小さく -->
-            <p class="text-base sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+            <!-- 日本語キャッチコピーはtext-xs sm:text-3xl で1行に収まることを確認済み -->
+            <p class="text-xs sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                 超音速流れの可視化と衝撃波現象の定量解析
             </p>
             <p class="text-sm sm:text-lg mb-8 bg-black/30 p-4 rounded-lg text-justify">
