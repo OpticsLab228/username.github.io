@@ -116,8 +116,8 @@
     }  
 
 　　/* === ナビゲーションバーの強化 === */
-    /* 背景の雰囲気を残すため、半透明の黒とぼかし（ブルーム）効果を適用 */
-    #main-nav {
+    /* [修正] #main-nav-container (headerタグ)を対象に背景と境界線を適用 */
+    #main-nav-container { 
         background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
         /* 背景の虹色や衝撃波が透けて見えるような効果 */
         backdrop-filter: blur(8px); 
@@ -126,13 +126,19 @@
     }
     
     /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
-    #main-nav a {
+    /* [修正] 既存の nav リンクのスタイルを維持 */
+    .section-container a, #mobile-menu a {
         font-family: 'Cinzel', serif !important;
         font-weight: 600 !important;
         color: #fff !important; /* テキストは白で統一 */
     }
 
-    
+    /* === ロゴの視認性向上 (追加) === */
+    /* 背景が暗いため、ロゴ画像に白いドロップシャドウを適用して視認性を高める */
+    #header-logo-link img {
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    }
+ 
     /* === [調整] 既存のプライマリーカラーをより強く === */
     .text-primary-blue {
         color: #004080 !important;
@@ -209,10 +215,12 @@
 </head>
 <body class="bg-white font-sans text-gray-800">
 
-<header class="sticky top-0 z-50 bg-primary-blue shadow-lg">
+<header class="sticky top-0 z-50 shadow-lg id="main-nav-container">
+
 <div class="section-container flex justify-between items-center py-4 px-4 sm:px-6">
 
-<a href="#home-hero" class="flex items-center">
+<a href="#home-hero" class="flex items-center **id="header-logo-link"**>
+
     <img src="HSGL_Logo.png" alt="High Speed Gasdynamics Lab Logo" class="h-8 sm:h-10 w-auto"/>
 </a>
 
@@ -622,6 +630,7 @@
     </script>
 </body>
 </html>
+
 
 
 
