@@ -36,13 +36,13 @@
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            /* 修正点1: 前回設定済みのモバイルでの左右パディングをpx-1に最小化 */
-            padding: 2rem 0.25rem; /* px-1 (0.25rem) を適用 */
+            /* モバイルでは最小化 */
+            padding: 2rem 0.25rem; 
         }
         /* PCサイズではpaddingを元に戻す */
         @media (min-width: 640px) {
             .section-container {
-                padding: 2rem 1rem; /* sm:px-4 (1rem) 相当 */
+                padding: 2rem 1rem; 
             }
         }
         
@@ -62,13 +62,13 @@
         }
 
         
-        /* === 【修正点2】トップページ英語タイトル(h1)のサイズ調整と装飾 === */
+        /* === トップページ英語タイトル(h1)のサイズ調整と装飾 === */
         #home-hero h1 { 
             font-family: 'Cinzel Decorative', serif !important; 
             font-weight: 900 !important; 
             text-transform: uppercase; 
             letter-spacing: -0.05em !important; 
-            /* 修正: モバイルサイズを1.75remから2.5remに拡大 */
+            /* モバイルサイズ: 前回2.5remに拡大 */
             font-size: 2.5rem; 
         }
         @media (min-width: 640px) {
@@ -96,33 +96,33 @@
             font-size: 2.5rem !important; 
         }
 
-        /* === キャッチコピー専用のフォントと配置 === */
+        /* === 【修正点2】英語キャッチコピー専用のフォントとサイズ調整 === */
         .section-container h2.catchphrase-text {
             font-family: Helvetica, Arial, sans-serif !important; 
             text-transform: none !important; 
+            /* モバイルサイズ */
             font-size: 1.125rem !important; 
             line-height: 1.4; /* モバイルでの行間を調整 */
         }
         @media (min-width: 640px) {
             .section-container h2.catchphrase-text {
-                font-size: 1.5rem !important; 
+                /* PCサイズ: 1.5remから2.0remに拡大 */
+                font-size: 2.0rem !important; 
+                line-height: 1.3; /* PCでの行間を調整 */
             }
         }
 
         /* モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 */
         #motto-text {
             font-family: 'Tangerine', cursive !important; 
-            /* モバイルでタイトルより大きく見えるよう4remを維持 */
             font-size: 4rem !important;        
             font-weight: 700 !important;       
             font-style: normal !important;     
             text-align: center; 
-            /* モバイルで大きくなりすぎないよう調整 */
             line-height: 1; 
         }  
         @media (min-width: 640px) {
             #motto-text {
-                /* PCではさらに大きく */
                 font-size: 6rem !important;
                 line-height: 1;
             }
@@ -174,7 +174,6 @@
             text-align: center;
             position: relative;
             background-attachment: fixed;
-            /* 修正: ヘッダーの下にコンテンツが隠れないように padding-top を設定 (モバイル対応) */
             padding-top: 68px; 
         }
         @media (min-width: 640px) {
@@ -270,14 +269,14 @@
         <!-- モットー -->
         <p class="text-2xl sm:text-3xl mb-8 w-full" id="motto-text">Witness the Invisible</p>
         
-        <!-- 英語キャッチコピー (モバイルで3行改行を強制) -->
+        <!-- 英語キャッチコピー (全サイズで3行改行を強制) -->
         <div class="flex flex-col mx-auto w-full">
-            <!-- 修正点1: モバイル表示で3行に分割するためにbrタグを調整 -->
+            <!-- 修正点1: brタグからlg:hiddenクラスを削除し、全ての画面サイズで強制改行 -->
             <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
                 Cutting-Edge Visualization:
-                <br class="lg:hidden"/>
+                <br/>
                 Quantifying Shock Wave Phenomena
-                <br class="lg:hidden"/>
+                <br/>
                 with World-Class Optical Diagnostics.
             </h2>
         </div>
@@ -580,8 +579,6 @@
                         behavior: 'smooth',
                         // ヘッダーの高さ（約68px）を考慮してオフセット
                         block: 'start', 
-                        // 代わりにCSSのscroll-margin-topを使用する方がモダンだが、互換性のため直接調整
-                        // ここではCSSでpadding-topを調整済みなので、block: 'start'でOK
                     });
                     
                     // モバイルメニューが開いている場合は閉じる
