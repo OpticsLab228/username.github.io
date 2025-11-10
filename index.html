@@ -306,6 +306,8 @@
 <section class="section-container bg-secondary-gray rounded-xl shadow-inner my-10" id="research">
 <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">研究テーマ</h2>
 <ul class="space-y-4 list-disc list-outside pl-6 text-lg">　
+
+ 
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
               <button id="toggle-paper-1" class="w-full text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none">
        　　　　 軸対称ノズルからの不足膨張噴流の特性に関する研究 (論文を見る 🔽)
@@ -321,12 +323,24 @@
                   </a>
               </div>
 　　　　　</li>
+
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
-              <p class="block text-primary-blue font-medium">
-       　　　　 遷音速ディフューザにおける衝撃波の振動現象の解明
-   　　　　　 </p>
+              <button id="toggle-paper-2" class="w-full text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none">
+       　　　　 遷音速ディフューザにおける衝撃波の振動現象の解明 (論文を見る 🔽)
+   　　　　　 </button>
               <img src="DesDiffuser.gif" alt="DESによるコンピューターシュリーレン" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
-　　　　　</li>        
+              
+              <div id="paper-list-2" class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg">
+                  <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
+                  <a href="Papers/Yamashita_EIF2025.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Yamashita et al., Mach-Zehnder interferometry for transient shock-dominated flows in a confined duct, Exp. Fluids 66(201)(2025)[PDF]
+                  </a>
+                  <a href="Papers/Yamashita_EIF2025.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Yamashita et al., Mach-Zehnder interferometry for transient shock-dominated flows in a confined duct, Exp. Fluids 66(201)(2025)[PDF]
+                  </a>
+              </div>
+　　　　　</li>
+ 
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
               <p class="block text-primary-blue font-medium">
        　　　　  非軸対称ノズルからの不足膨張噴流の三次元構造解析
@@ -433,8 +447,8 @@
                     link.setAttribute('href', href === '#home' ? '#home-hero' : '#career');
                 }
             });
-            
-            // --- 研究テーマの論文リスト表示機能の追加 ---
+
+// --- 研究テーマの論文リスト表示機能の追加 ---
             const toggleButton1 = document.getElementById('toggle-paper-1');
             const paperList1 = document.getElementById('paper-list-1');
 
@@ -453,9 +467,31 @@
                 });
             }
             // ----------------------------------------
+            
+            // --- [追加] 研究テーマ2の論文リスト表示機能の追加 ---
+            const toggleButton2 = document.getElementById('toggle-paper-2');
+            const paperList2 = document.getElementById('paper-list-2');
+
+            if (toggleButton2 && paperList2) {
+                toggleButton2.addEventListener('click', () => {
+                    // hiddenクラスをトグル（表示/非表示を切り替え）
+                    paperList2.classList.toggle('hidden');
+
+                    // ボタンのテキストを切り替え
+                    const isHidden = paperList2.classList.contains('hidden');
+                    if (isHidden) {
+                        toggleButton2.innerHTML = '遷音速ディフューザにおける衝撃波の振動現象の解明 (論文を見る 🔽)';
+                    } else {
+                        toggleButton2.innerHTML = '遷音速ディフューザにおける衝撃波の振動現象の解明 (論文を隠す 🔼)';
+                    }
+                });
+            }
+            // ----------------------------------------
         });
     </script>
 </body>
 </html>
+
+
 
 
