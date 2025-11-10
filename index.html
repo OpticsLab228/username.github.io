@@ -39,13 +39,12 @@
             padding: 2rem 1rem;
         }
         
-        /* === [最終調整] トップページタイトル(h1)にCinzel Decorativeを適用し、スモールキャップス風に === */
+        /* === トップページタイトル(h1)にCinzel Decorativeを適用し、スモールキャップス風に === */
         #home-hero h1 { 
             font-family: 'Cinzel Decorative', serif !important; 
             font-weight: 900 !important; 
             text-transform: uppercase; 
             letter-spacing: -0.05em !important; 
-            /* white-space: nowrap; を削除し、改行タグ(<br class="sm:hidden"/>)で制御します */
             font-size: 1.75rem;
         }
         @media (min-width: 640px) {
@@ -53,6 +52,7 @@
                 font-size: 3rem; 
             }
         }
+        /* 1文字目を大きくする装飾 */
         #home-hero h1 span::first-letter {
             font-size: 1.8em; 
             line-height: 1; 
@@ -77,6 +77,7 @@
             font-family: Helvetica, Arial, sans-serif !important; 
             text-transform: none !important; 
             font-size: 1.125rem !important; 
+            line-height: 1.4; /* モバイルでの行間を調整 */
         }
         @media (min-width: 640px) {
             .section-container h2.catchphrase-text {
@@ -138,6 +139,13 @@
             text-align: center;
             position: relative;
             background-attachment: fixed;
+            /* 修正: ヘッダーの下にコンテンツが隠れないように padding-top を設定 (モバイル対応) */
+            padding-top: 68px; 
+        }
+        @media (min-width: 640px) {
+            #home-hero {
+                padding-top: 0; 
+            }
         }
         #home-hero::before {
             content: '';
@@ -218,29 +226,34 @@
 <!-- セクションコンテンツ -->
 <section class="min-h-screen" id="home-hero">
     <div id="rainbow-overlay"></div>
-    <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full">
-        <!-- 修正箇所 1: 英語タイトルをモバイルで2行に分割 -->
+    <!-- 修正: コンテンツを垂直方向に調整 -->
+    <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full pt-10 sm:pt-0">
+        <!-- 英語タイトル (モバイルで2行表示) -->
         <h1 class="font-extrabold mb-4 w-full">
             <span>High</span> <span>Speed</span><br class="sm:hidden"/> <span>Gasdynamics</span> <span>Lab</span>
         </h1>
         <!-- モットー -->
         <p class="text-2xl sm:text-3xl mb-8 w-full" id="motto-text">Witness the Invisible</p>
-        <!-- 修正箇所 2: 英語キャッチコピーをモバイルで3行に分割 -->
+        <!-- 英語キャッチコピー (PCでwith以降を2行目に強制改行) -->
         <div class="flex flex-col mx-auto w-full">
             <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
-                Cutting-Edge Visualization:<br class="sm:hidden"/>Quantifying Shock Wave Phenomena<br class="sm:hidden"/>with World-Class Optical Diagnostics.
+                Cutting-Edge Visualization: Quantifying Shock Wave Phenomena
+                <!-- PC(sm:以降)でのみ改行を挿入 -->
+                <br class="hidden sm:block"/>
+                with World-Class Optical Diagnostics.
             </h2>
         </div>
         <!-- 研究室名称と紹介文 -->
-        <div class="mt-8 p-8 sm:p-10 rounded-xl w-full bg-black/40 text-center">
-            <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+        <div class="mt-8 p-6 sm:p-10 rounded-xl w-full bg-black/40 text-center">
+            <!-- 修正: 日本語タイトルをモバイルで小さく -->
+            <h2 class="text-3xl sm:text-6xl font-extrabold mb-2 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                 高速気体力学研究室
             </h2>
-            <!-- 日本語キャッチコピー (前回の修正済み) -->
-            <p class="text-lg sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+            <!-- 修正: 日本語キャッチコピーをモバイルで小さく -->
+            <p class="text-base sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                 超音速流れの可視化と衝撃波現象の定量解析
             </p>
-            <p class="text-lg mb-8 bg-black/30 p-4 rounded-lg text-justify">
+            <p class="text-sm sm:text-lg mb-8 bg-black/30 p-4 rounded-lg text-justify">
                 私たちの研究室では、航空宇宙工学やエネルギー分野で重要となる「高速流動現象」に焦点を当て、衝撃波、超音速噴流、遷音速流れの挙動を詳細に解析しています。最先端の光学計測技術を駆使し、目に見えない流れを「可視化」し、その謎を解明することで、次世代の航空機開発や環境技術への貢献を目指します。
             </p>
         </div>
@@ -527,7 +540,10 @@
                 if (targetElement) {
                     targetElement.scrollIntoView({
                         behavior: 'smooth',
-                        block: 'start'
+                        // ヘッダーの高さ（約68px）を考慮してオフセット
+                        block: 'start', 
+                        // 代わりにCSSのscroll-margin-topを使用する方がモダンだが、互換性のため直接調整
+                        // ここではCSSでpadding-topを調整済みなので、block: 'start'でOK
                     });
                     
                     // モバイルメニューが開いている場合は閉じる
