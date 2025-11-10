@@ -454,49 +454,47 @@
             });
         });
 
-        // --- 研究テーマの論文リスト表示機能 ---
-        const toggleFeatures = [
-            { id: 'paper-1', text: '軸対称ノズルからの不足膨張噴流の特性に関する研究' },
-            { id: 'paper-2', text: '遷音速ディフューザにおける衝撃波の振動現象の解明' },
-            { id: 'paper-3', text: '非軸対称ノズルからの不足膨張噴流の三次元構造解析' },
-        ];
+        // ----------------------------------------------------
+        // ✅ [修正済み] 研究テーマの論文リスト表示機能
+        // ----------------------------------------------------
+        const toggleResearchAndFacilities = (item, type) => {
+            let toggleButton, contentElement, originalText;
 
-        toggleFeatures.forEach(item => {
-            const toggleButton = document.getElementById(`toggle-${item.id}`);
-            const contentList = document.getElementById(`paper-list-${item.id}`);
+            if (type === 'paper') {
+                toggleButton = document.getElementById(`toggle-paper-${item.id}`);
+                contentElement = document.getElementById(`paper-list-${item.id}`);
+                originalText = item.text;
+            } else if (type === 'facility') {
+                toggleButton = document.getElementById(`toggle-${item.id}`);
+                contentElement = document.getElementById(`image-${item.id}`);
+                originalText = item.text;
+            }
 
-            if (toggleButton && contentList) {
+            if (toggleButton && contentElement) {
                 toggleButton.addEventListener('click', () => {
-                    contentList.classList.toggle('hidden');
-                    const isHidden = contentList.classList.contains('hidden');
-                    toggleButton.innerHTML = isHidden
-                        ? `${item.text} (論文を見る 🔽)`
-                        : `${item.text} (論文を隠す 🔼)`;
+                    contentElement.classList.toggle('hidden');
+                    const isHidden = contentElement.classList.contains('hidden');
+                    
+                    // ボタンのテキストを更新して、表示/非表示の状態をフィードバック
+                    let action = isHidden ? (type === 'paper' ? '論文を見る 🔽' : '写真を見る 🔽') : (type === 'paper' ? '論文を隠す 🔼' : '写真を隠す 🔼');
+                    toggleButton.innerHTML = `${originalText} (${action})`;
                 });
             }
-        });
+        };
+
+        const researchItems = [
+            { id: 1, text: '軸対称ノズルからの不足膨張噴流の特性に関する研究' },
+            { id: 2, text: '遷音速ディフューザにおける衝撃波の振動現象の解明' },
+            { id: 3, text: '非軸対称ノズルからの不足膨張噴流の三次元構造解析' },
+        ];
+        researchItems.forEach(item => toggleResearchAndFacilities(item, 'paper'));
         
-        // --- 実験設備 画像表示機能 ---
-        const toggleFacilities = [
+        const facilityItems = [
             { id: 'rsd', text: 'レインボーシュリーレン光学系' },
             { id: 'mzi', text: 'マッハ・ツェンダー干渉計' },
             { id: 'tgi', text: 'トワイマン・グリーン干渉計' },
         ];
-
-        toggleFacilities.forEach(item => {
-            const toggleButton = document.getElementById(`toggle-${item.id}`);
-            const imageContainer = document.getElementById(`image-${item.id}`);
-
-            if (toggleButton && imageContainer) {
-                toggleButton.addEventListener('click', () => {
-                    imageContainer.classList.toggle('hidden');
-                    const isHidden = imageContainer.classList.contains('hidden');
-                    toggleButton.innerHTML = isHidden
-                        ? `${item.text} (写真を見る 🔽)`
-                        : `${item.text} (写真を隠す 🔼)`;
-                });
-            }
-        });
+        facilityItems.forEach(item => toggleResearchAndFacilities(item, 'facility'));
 
         // --- ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
         document.querySelectorAll('#main-nav-container a[href^="#"], #mobile-menu a[href^="#"], #header-logo-link[href^="#"]').forEach(anchor => {
