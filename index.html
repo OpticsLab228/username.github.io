@@ -68,12 +68,14 @@
             font-weight: 900 !important; 
             text-transform: uppercase; 
             letter-spacing: -0.05em !important; 
-            /* モバイルサイズ: 前回2.5remに拡大 */
+            /* モバイルサイズ: 2.5rem */
             font-size: 2.5rem; 
         }
         @media (min-width: 640px) {
             #home-hero h1 {
-                font-size: 3rem; 
+                /* 【修正点2】PCサイズ: 3rem から 4.5rem に拡大 (約72px) */
+                font-size: 4.5rem; 
+                line-height: 1; /* 行間を詰める */
             }
         }
         /* 1文字目を大きくする装飾 */
@@ -96,7 +98,7 @@
             font-size: 2.5rem !important; 
         }
 
-        /* === 【修正点2】英語キャッチコピー専用のフォントとサイズ調整 === */
+        /* === 英語キャッチコピー専用のフォントとサイズ調整 === */
         .section-container h2.catchphrase-text {
             font-family: Helvetica, Arial, sans-serif !important; 
             text-transform: none !important; 
@@ -106,13 +108,13 @@
         }
         @media (min-width: 640px) {
             .section-container h2.catchphrase-text {
-                /* PCサイズ: 1.5remから2.0remに拡大 */
+                /* PCサイズ: 2.0rem */
                 font-size: 2.0rem !important; 
                 line-height: 1.3; /* PCでの行間を調整 */
             }
         }
 
-        /* モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 */
+        /* === モットー 'Witness the Invisible' に精錬された筆記体 'Tangerine' を適用 === */
         #motto-text {
             font-family: 'Tangerine', cursive !important; 
             font-size: 4rem !important;        
@@ -123,7 +125,8 @@
         }  
         @media (min-width: 640px) {
             #motto-text {
-                font-size: 6rem !important;
+                /* 【修正点3】PCサイズ: 6rem から 5rem に縮小しタイトルとのバランスを取る */
+                font-size: 5rem !important;
                 line-height: 1;
             }
         }
@@ -262,16 +265,15 @@
     <div id="rainbow-overlay"></div>
     <!-- section-containerの左右パディングはCSSでpx-1に最小化済み -->
     <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full pt-10 sm:pt-0">
-        <!-- 英語タイトル (モバイルで2行表示) -->
+        <!-- 英語タイトル (PCで強制2行表示) -->
         <h1 class="font-extrabold mb-4 w-full">
-            <span>High</span> <span>Speed</span><br class="sm:hidden"/> <span>Gasdynamics</span> <span>Lab</span>
+            HIGH SPEED<br class="hidden sm:block"/>GASDYNAMICS LAB
         </h1>
         <!-- モットー -->
         <p class="text-2xl sm:text-3xl mb-8 w-full" id="motto-text">Witness the Invisible</p>
         
         <!-- 英語キャッチコピー (全サイズで3行改行を強制) -->
         <div class="flex flex-col mx-auto w-full">
-            <!-- 修正点1: brタグからlg:hiddenクラスを削除し、全ての画面サイズで強制改行 -->
             <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
                 Cutting-Edge Visualization:
                 <br/>
