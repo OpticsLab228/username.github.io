@@ -116,15 +116,19 @@
     }  
 
 　　/* === ナビゲーションバーの強化 === */
-　　/* IDではなく要素セレクタとIDを併用し、背景を確実に適用 */
+　　/* IDと要素セレクタで半透明の黒とぼかしを適用し、will-changeで描画バグを回避 */
 　　header#main-nav-container { 
-    /* 背景色をプライマリブルーにして、CSSで半透明の黒を上書きすることで常に色を維持 */
     background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
     backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px); /* Safari対応 */
     border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
-　　}
     
+    /* 【最重要】スクロールトップでの白化バグを回避するため、描画プロパティを追加 */
+    transform: translateZ(0);
+    will-change: transform;
+　　}
+
+ 
     /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
     /* [修正] 既存の nav リンクのスタイルを維持 */
     .section-container a, #mobile-menu a {
@@ -625,6 +629,7 @@
     </script>
 </body>
 </html>
+
 
 
 
