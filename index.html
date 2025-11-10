@@ -293,16 +293,42 @@
 <section class="section-container my-10" id="facilities">
 <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">実験設備</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+
+ 
 <ul class="list-disc list-inside space-y-2 text-lg pl-4">
 <li>吹出式超音速風洞</li>
 <li>吸込式超音速風洞</li>
 <li>Z型シュリーレン光学系</li>
 </ul>
-<ul class="list-disc list-inside space-y-2 text-lg pl-4">
-<li>レインボーシュリーレン光学系</li>
-<li>マッハ・ツェンダー干渉計</li>
-<li>トワイマン・グリーン干渉計</li>
+
+<ul class="list-disc list-inside space-y-4 text-lg pl-4">
+<li id="item-rsd">
+    <button id="toggle-rsd" class="w-full text-left block text-primary-blue hover:text-red-600 transition duration-300 focus:outline-none">
+        レインボーシュリーレン光学系 (写真を見る 🔽)
+    </button>
+    <div id="image-rsd" class="hidden mt-2 p-3 border border-gray-200 space-y-2 bg-gray-50 rounded-lg">
+        <img src="RSD_Takeshita.png" alt="レインボーシュリーレン光学系" class="rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+    </div>
+</li>
+<li id="item-mzi">
+    <button id="toggle-mzi" class="w-full text-left block text-primary-blue hover:text-red-600 transition duration-300 focus:outline-none">
+        マッハ・ツェンダー干渉計 (写真を見る 🔽)
+    </button>
+    <div id="image-mzi" class="hidden mt-2 p-3 border border-gray-200 space-y-2 bg-gray-50 rounded-lg">
+        <img src="MZI_Yamashita.png" alt="マッハ・ツェンダー干渉計" class="rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+    </div>
+</li>
+<li id="item-tgi">
+    <button id="toggle-tgi" class="w-full text-left block text-primary-blue hover:text-red-600 transition duration-300 focus:outline-none">
+        トワイマン・グリーン干渉計 (写真を見る 🔽)
+    </button>
+    <div id="image-tgi" class="hidden mt-2 p-3 border border-gray-200 space-y-2 bg-gray-50 rounded-lg">
+        <img src="TGI_Sugawara.png" alt="トワイマン・グリーン干渉計" class="rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+    </div>
+</li>
 </ul>
+ 
 </div> 
 </section>
 
@@ -527,6 +553,7 @@
     </script>
 </body>
 </html>
+
 
 
 
