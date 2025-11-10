@@ -115,20 +115,23 @@
         text-align: center; /* 中央揃えを維持 */
     }  
 
-　　/* === ナビゲーションバーの強化 === */
-　　/* IDと要素セレクタで半透明の黒とぼかしを適用し、will-changeで描画バグを回避 */
+　　/* === ナビゲーションバーの強化（最終バグ回避版） === */
 　　header#main-nav-container { 
     background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
     backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px); /* Safari対応 */
     border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
     
-    /* 【最重要】スクロールトップでの白化バグを回避するため、描画プロパティを追加 */
-    transform: translateZ(0);
+    /* 【最終回避策】ブラウザに強制的に描画レイヤーを分離させる */
+    /* transform: translateZ(0)よりも強力にバグを回避することがあります */
+    transform: translate3d(0, 0, 0); 
     will-change: transform;
+    /* レンダリングの安定化のため、z-indexを非常に高く設定 */
+    z-index: 9999;
+    /* レイヤリングを強制するため、relativeを追加（Tailwindのstickyがあるため通常不要だが念のため） */
+    position: relative;
 　　}
 
- 
     /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
     /* [修正] 既存の nav リンクのスタイルを維持 */
     .section-container a, #mobile-menu a {
@@ -629,6 +632,7 @@
     </script>
 </body>
 </html>
+
 
 
 
