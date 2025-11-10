@@ -115,38 +115,41 @@
         text-align: center; /* 中央揃えを維持 */
     }  
 
-　　/* === ナビゲーションバーの強化（最終バグ回避版） === */
-　　header#main-nav-container { 
-    background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); /* Safari対応 */
-    border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
-    
-    /* 【最終回避策】ブラウザに強制的に描画レイヤーを分離させる */
-    /* transform: translateZ(0)よりも強力にバグを回避することがあります */
-    transform: translate3d(0, 0, 0); 
-    will-change: transform;
-    /* レンダリングの安定化のため、z-indexを非常に高く設定 */
-    z-index: 9999;
-    /* レイヤリングを強制するため、relativeを追加（Tailwindのstickyがあるため通常不要だが念のため） */
-    position: relative;
+　　/* === ナビゲーションバーの強化（背景レイヤー分離版） === */
+　　header#main-nav-container {
+    /* 子要素のabsoluteを機能させるため必須。stickyがあるため通常は不要だが安全のため残す */
+    position: relative; 
+    /* 境界線のみヘッダー本体に残し、背景色、ぼかし、バグ回避コードをすべて削除 */
+    border-bottom: 2px solid #004080; 
+    z-index: 50; /* Tailwindのz-50を明示 */
 　　}
 
-    /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
-    /* [修正] 既存の nav リンクのスタイルを維持 */
-    .section-container a, #mobile-menu a {
-        font-family: 'Cinzel', serif !important;
-        font-weight: 600 !important;
-        color: #fff !important; /* テキストは白で統一 */
-    }
+　　/* NEW: 背景レイヤーに半透明とぼかしを適用 */
+　　#header-bg-layer {
+    background-color: rgba(0, 0, 0, 0.7); /* 深い黒の半透明 */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Safari対応 */
+    z-index: 0; /* コンテンツの下に配置 */
+    /* 最後のバグ回避策：描画コンテキストを分離 */
+    transform: translate3d(0, 0, 0); 
+    will-change: transform;
+　　}
 
-    /* === ロゴの視認性向上 (追加) === */
-    /* 背景が暗いため、ロゴ画像に白いドロップシャドウを適用して視認性を高める */
-    #header-logo-link img {
-        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-    }
+　　/* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
+　　/* [修正] 既存の nav リンクのスタイルを維持し、コントラストのために明るい黄色に変更 */
+　　.section-container a, #mobile-menu a {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 600 !important;
+    /* HTML側のクラス定義（text-white）を尊重し、CSSでの色指定をコメントアウト */
+    /* color: #FCD34D !important; */
+　　}
 
-
+　　/* === ロゴの視認性向上 (追加) === */
+　　/* 背景が暗いため、ロゴ画像に白いドロップシャドウを適用して視認性を高める */
+　　#header-logo-link img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+　　}
+ 
     /* === [調整] 既存のプライマリーカラーをより強く === */
     .text-primary-blue {
         color: #004080 !important;
@@ -222,25 +225,29 @@
                 
 </head>
 <body class="bg-white font-sans text-gray-800">
-<header class="sticky top-0 z-50 shadow-lg" id="main-nav-container">
-<div class="section-container flex justify-between items-center py-4 px-4 sm:px-6">
-<a href="#home-hero" class="flex items-center" id="header-logo-link">
-    <img src="HSGL_Logo.png" alt="High Speed Gasdynamics Lab Logo" class="h-8 sm:h-10 w-auto"/>
-</a>
-<button class="sm:hidden p-2 rounded-md hover:bg-white/10 transition" id="menu-button">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<nav class="hidden sm:flex space-x-6">
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#home-hero"><span class="font-bold mr-1">1.</span>ホーム</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#members"><span class="font-bold mr-1">2.</span>メンバー</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#facilities"><span class="font-bold mr-1">3.</span>実験設備</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#research"><span class="font-bold mr-1">4.</span>研究テーマ</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#publications"><span class="font-bold mr-1">5.</span>論文・業績</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#career"><span class="font-bold mr-1">6.</span>進路・就職先</a>
-<a class="text-white hover:text-yellow-300 transition duration-300 font-medium" href="#contact"><span class="font-bold mr-1">7.</span>お問い合わせ</a>
-</nav>
-</div>
+
+<header class="sticky top-0 z-50 shadow-lg relative" id="main-nav-container">
+    <div id="header-bg-layer" class="absolute inset-0"></div> 
+    
+    <div class="section-container flex justify-between items-center py-4 px-4 sm:px-6 relative z-10">
+        <a href="#home-hero" class="flex items-center" id="header-logo-link">
+            <img src="HSGL_Logo.png" alt="High Speed Gasdynamics Lab Logo" class="h-8 sm:h-10 w-auto"/>
+        </a>
+        <button class="sm:hidden p-2 rounded-md hover:bg-white/10 transition" id="menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+        <nav class="hidden sm:flex space-x-6">
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#home-hero"><span class="font-bold mr-1">1.</span>ホーム</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#members"><span class="font-bold mr-1">2.</span>メンバー</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities"><span class="font-bold mr-1">3.</span>実験設備</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#research"><span class="font-bold mr-1">4.</span>研究テーマ</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications"><span class="font-bold mr-1">5.</span>論文・業績</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#career"><span class="font-bold mr-1">6.</span>進路・就職先</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#contact"><span class="font-bold mr-1">7.</span>お問い合わせ</a>
+        </nav>
+    </div>
 </header>
+ 
 <nav class="hidden fixed inset-x-0 top-[68px] bg-primary-blue bg-opacity-95 z-40 shadow-xl sm:hidden" id="mobile-menu">
 <div class="flex flex-col p-4 space-y-2">
 <a class="text-white hover:bg-white/10 p-2 rounded-lg transition font-medium text-lg text-center" href="#home-hero"><span class="font-bold mr-1">1.</span>ホーム</a>
@@ -632,6 +639,7 @@
     </script>
 </body>
 </html>
+
 
 
 
