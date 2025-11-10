@@ -341,11 +341,32 @@
               </div>
 　　　　　</li>
  
+<!-- 変更前: 研究テーマ3のHTML部分（論文リスト非対応） -->
+<!-- 
 　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
               <p class="block text-primary-blue font-medium">
        　　　　  非軸対称ノズルからの不足膨張噴流の三次元構造解析
    　　　　　 </p>
               <img src="SquareJet.gif" alt="矩形不足膨張噴流の断面の密度場" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+　　　　　</li>
+-->
+<!-- 変更後: 研究テーマ3のHTML部分（論文リスト対応） -->
+　　　　　<li class="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-100 transition duration-300">
+              <button id="toggle-paper-3" class="w-full text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none">
+       　　　　  非軸対称ノズルからの不足膨張噴流の三次元構造解析 (論文を見る 🔽)
+   　　　　　 </button>
+              <img src="SquareJet.gif" alt="矩形不足膨張噴流の断面の密度場" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md"/>
+              
+              <div id="paper-list-3" class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg">
+                  <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
+                  <!-- サンプルの論文情報 -->
+                  <a href="Papers/Yoshimi_FMI2025.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Yoshimi et al., Near-field flow features of underexpanded microjets emerging from a rectangular convergent nozzle with a high-aspect-ratio, Flow Meas. Instrum. 106(2025), 102945.[PDF]
+                  </a>
+                  <a href="Papers/Sakashita_EIF2025.pdf" download class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline">
+                      Sakashita et al., Quantitative flow visualization of underexpanded elliptic jets by rainbow schlieren tomography, Flow Turbule Combust (2025), pp. 1-22.[PDF]
+                  </a>
+              </div>
 　　　　　</li>
 　　　　　　
 <li class="p-2 bg-white rounded-lg shadow-sm">広がり管内における不安定な衝撃波の挙動解析(新テーマ)</li>
@@ -487,13 +508,27 @@
                 });
             }
             // ----------------------------------------
+            
+// --- [追加] 研究テーマ3の論文リスト表示機能の追加 ---
+            const toggleButton3 = document.getElementById('toggle-paper-3');
+            const paperList3 = document.getElementById('paper-list-3');
+
+            if (toggleButton3 && paperList3) {
+                toggleButton3.addEventListener('click', () => {
+                    // hiddenクラスをトグル（表示/非表示を切り替え）
+                    paperList3.classList.toggle('hidden');
+
+                    // ボタンのテキストを切り替え
+                    const isHidden = paperList3.classList.contains('hidden');
+                    if (isHidden) {
+                        toggleButton3.innerHTML = '非軸対称ノズルからの不足膨張噴流の三次元構造解析 (論文を見る 🔽)';
+                    } else {
+                        toggleButton3.innerHTML = '非軸対称ノズルからの不足膨張噴流の三次元構造解析 (論文を隠す 🔼)';
+                    }
+                });
+            }
+// ----------------------------------------
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
