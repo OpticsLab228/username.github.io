@@ -115,24 +115,29 @@
         text-align: center; /* 中央揃えを維持 */
     }  
 
-　　/* === ナビゲーションバーの強化（背景レイヤー分離版） === */
+ 　/* === ナビゲーションバーの強化（JavaScript制御版） === */
 　　header#main-nav-container {
-    /* 子要素のabsoluteを機能させるため必須。stickyがあるため通常は不要だが安全のため残す */
-    position: relative; 
-    /* 境界線のみヘッダー本体に残し、背景色、ぼかし、バグ回避コードをすべて削除 */
-    border-bottom: 2px solid #004080; 
+    /* スクロールトップ（バグ発生時）のデフォルトスタイル: 完全に透明でバグを回避 */
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 2px solid transparent; /* 境界線も透明に */
+    
     z-index: 50; /* Tailwindのz-50を明示 */
-　　}
-
-　　/* NEW: 背景レイヤーに半透明とぼかしを適用 */
-　　#header-bg-layer {
-    background-color: rgba(0, 0, 0, 0.7); /* 深い黒の半透明 */
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); /* Safari対応 */
-    z-index: 0; /* コンテンツの下に配置 */
-    /* 最後のバグ回避策：描画コンテキストを分離 */
+    
+    /* 念のためのバグ回避コード */
     transform: translate3d(0, 0, 0); 
     will-change: transform;
+    /* スムーズな色の変化のためにtransitionを追加 */
+    transition: background-color 0.3s, border-bottom 0.3s;
+　　}
+
+　　/* スクロール後のスタイル（JavaScriptでこのクラスを付与） */
+　　header#main-nav-container.scrolled {
+    background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
+    backdrop-filter: blur(8px) !important; 
+    -webkit-backdrop-filter: blur(8px) !important; /* Safari対応 */
+    border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
 　　}
 
 　　/* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
@@ -141,7 +146,6 @@
     font-family: 'Cinzel', serif !important;
     font-weight: 600 !important;
     /* HTML側のクラス定義（text-white）を尊重し、CSSでの色指定をコメントアウト */
-    /* color: #FCD34D !important; */
 　　}
 
 　　/* === ロゴの視認性向上 (追加) === */
@@ -149,7 +153,7 @@
 　　#header-logo-link img {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
 　　}
- 
+　　
     /* === [調整] 既存のプライマリーカラーをより強く === */
     .text-primary-blue {
         color: #004080 !important;
@@ -226,10 +230,8 @@
 </head>
 <body class="bg-white font-sans text-gray-800">
 
-<header class="sticky top-0 z-50 shadow-lg relative" id="main-nav-container">
-    <div id="header-bg-layer" class="absolute inset-0"></div> 
-    
-    <div class="section-container flex justify-between items-center py-4 px-4 sm:px-6 relative z-10">
+<header class="sticky top-0 z-50 shadow-lg" id="main-nav-container">
+    <div class="section-container flex justify-between items-center py-4 px-4 sm:px-6">
         <a href="#home-hero" class="flex items-center" id="header-logo-link">
             <img src="HSGL_Logo.png" alt="High Speed Gasdynamics Lab Logo" class="h-8 sm:h-10 w-auto"/>
         </a>
@@ -503,7 +505,9 @@
 <footer class="bg-primary-blue text-white text-center py-6">
 <p class="text-sm">© 2025 OptiFlow Lab. All rights reserved.</p>
 </footer>
-        
+
+
+ 
 <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuButton = document.getElementById('menu-button');
@@ -636,9 +640,30 @@
 // ----------------------------------------
     
         });
+
+ // --- [追加] スクロールトップでのヘッダー白化バグ回避 ---
+            const mainHeader = document.getElementById('main-nav-container');
+
+            if (mainHeader) {
+                const checkScroll = () => {
+                    // スクロール量が1ピクセルでもあれば 'scrolled' クラスを付与
+                    if (window.scrollY > 1) {
+                        mainHeader.classList.add('scrolled');
+                    } else {
+                        // スクロールトップでは 'scrolled' クラスを削除
+                        mainHeader.classList.remove('scrolled');
+                    }
+                };
+
+                // ページロード時とスクロール時にチェックを実行
+                window.addEventListener('scroll', checkScroll);
+                window.addEventListener('load', checkScroll);
+            }
+// ----------------------------------------
     </script>
 </body>
 </html>
+
 
 
 
