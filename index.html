@@ -635,7 +635,6 @@ window.addEventListener('scroll', function() {
                 });
             }
 // ----------------------------------------
-
 // --- [追加] 実験設備 画像表示機能の追加 (トワイマン・グリーン) ---
             const toggleButtonTGI = document.getElementById('toggle-tgi');
             const imageTGI = document.getElementById('image-tgi');
@@ -650,12 +649,36 @@ window.addEventListener('scroll', function() {
                 });
             }
 // ----------------------------------------
+
+// --- [追加] ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
+    document.querySelectorAll('#main-nav-container a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // デフォルトのアンカーリンクの挙動をキャンセル
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // スムーズスクロールを実行 (CSSで scroll-behavior: smooth; が設定されているため、基本的には不要ですが念のため)
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // 要素の上端がビューポートの上端に合うようにスクロール
+                });
+                
+                // モバイルメニューが開いている場合は閉じる (二重のナビゲーション処理があるため、念のため)
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                     mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+// ----------------------------------------------------------------------
     
         });
 
  // --- [追加] スクロールトップでのヘッダー白化バグ回避 ---
             const mainHeader = document.getElementById('main-nav-container');
-
             if (mainHeader) {
                 const checkScroll = () => {
                     // スクロール量が1ピクセルでもあれば 'scrolled' クラスを付与
