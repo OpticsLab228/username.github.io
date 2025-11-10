@@ -116,14 +116,14 @@
     }  
 
 　　/* === ナビゲーションバーの強化 === */
-    /* [修正] #main-nav-container (headerタグ)を対象に背景と境界線を適用 */
-    #main-nav-container { 
-        background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
-        /* 背景の虹色や衝撃波が透けて見えるような効果 */
-        backdrop-filter: blur(8px); 
-        -webkit-backdrop-filter: blur(8px); /* Safari対応 */
-        border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
-    }
+　　/* IDではなく要素セレクタとIDを併用し、背景を確実に適用 */
+　　header#main-nav-container { 
+    /* 背景色をプライマリブルーにして、CSSで半透明の黒を上書きすることで常に色を維持 */
+    background-color: rgba(0, 0, 0, 0.7) !important; /* 深い黒の半透明 */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Safari対応 */
+    border-bottom: 2px solid #004080; /* 研究室のメインカラーで境界線を強調 */
+　　}
     
     /* ナビゲーションリンクのフォントをCinzelにして、エレガントに */
     /* [修正] 既存の nav リンクのスタイルを維持 */
@@ -626,6 +626,7 @@
     </script>
 </body>
 </html>
+
 
 
 
