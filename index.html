@@ -73,14 +73,14 @@
     line-height: 1.2 !important; /* !important を付けて優先度を上げる */
     
     /* モバイルサイズ: 2.5rem */
-    font-size: 2.5rem !important; /* 【推奨】!important で確実に適用 */
+    font-size: 3.75rem !important; /* 【推奨】!important で確実に適用 */
 }
         
 /* PCサイズの調整 */
 @media (min-width: 640px) {
     #home-hero h1 {
         /* 【重要】元のPCサイズを !important で強制的に維持 */
-        font-size: 5rem !important; 
+        font-size: 7.5rem !important; 
         
         /* 【修正】行間を広げる設定 (line-height: 1.2は前回提案の値です) */
         line-height: 1.2 !important; 
@@ -184,9 +184,12 @@
         font-size: 1.25rem !important; 
        }
      
-        /* === ロゴの視認性向上 === */
+       
+        /* === ロゴの視認性向上 (修正: サイズ拡大) === */
         #header-logo-link img {
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            /* 【新規追加】高さを1.5倍の60pxに拡大 */
+            height: 60px !important; 
         }
         
         /* === [調整] 既存のプライマリーカラーをより強く === */
