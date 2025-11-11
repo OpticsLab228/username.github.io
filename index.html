@@ -5,12 +5,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>HSGLホームページ</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Links -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&amp;family=Cinzel+Decorative:wght@400;700;900&amp;family=Tangerine:wght@400;700&amp;display=swap" rel="stylesheet"/>
     
-    <!-- Tailwind Config and Custom Styles -->
     <script>
         tailwind.config = {
             theme: {
@@ -253,23 +250,19 @@
 </head>
 <body class="bg-white font-sans text-gray-800">
 
-<!-- メインヘッダー/ナビゲーション -->
 <header class="sticky top-0 z-50 shadow-lg" id="main-nav-container">
     <div class="section-container flex justify-between items-center px-4 sm:px-6">
-        <!-- ロゴを左端に配置 -->
         <a href="#home-hero" id="header-logo-link">
             <img alt="HSGL Logo" src="HSGL_Logo.png"/>
         </a>
 
-        <!-- モバイルメニューボタン -->
         <button class="sm:hidden p-2 rounded-md hover:bg-white/10 transition text-white" id="menu-button">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         
-        <!-- デスクトップナビゲーション (番号を削除) -->
         <nav class="hidden sm:flex space-x-6">
             <a class="text-white hover:text-white transition duration-300 font-medium" href="#home-hero">ホーム</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#members">メンバー</a>
+            <a class="text-white hover:text-white transition duration-300 font-medium" href="#news">新着情報</a> <a class="text-white hover:text-white transition duration-300 font-medium" href="#members">メンバー</a>
             <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities">実験設備</a>
             <a class="text-white hover:text-white transition duration-300 font-medium" href="#research">研究テーマ</a>
             <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications">出版物</a>
@@ -279,11 +272,10 @@
     </div>
 </header>
 
-<!-- モバイルメニュー -->
 <nav class="hidden fixed inset-x-0 top-[120px] bg-primary-blue bg-opacity-95 z-40 shadow-xl sm:hidden" id="mobile-menu">
     <div class="flex flex-col p-4 space-y-2">
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#home-hero">ホーム</a>
-        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#members">メンバー</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#news">新着情報</a> <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#members">メンバー</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities">実験設備</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#research">研究テーマ</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications">出版物</a>
@@ -292,21 +284,15 @@
     </div>
 </nav>
 
-<!-- セクションコンテンツ -->
 <section class="min-h-screen" id="home-hero">
     <div id="rainbow-overlay"></div>
-    <!-- section-containerの左右パディングはCSSでpx-1に最小化済み -->
     <div class="z-10 text-white section-container max-w-4xl flex flex-col items-center justify-center text-center h-full pt-10 sm:pt-0">
-        <!-- 英語タイトル (PCで強制2行表示) -->
-
-   <h1 class="font-extrabold mb-4 w-full">
+        <h1 class="font-extrabold mb-4 w-full">
     HIGH SPEED<br/>GASDYNAMICS LAB
    </h1>
 
-        <!-- モットー -->
         <p class="text-2xl sm:text-3xl mb-8 w-full" id="motto-text">Witness the Invisible</p>
         
-        <!-- 英語キャッチコピー (全サイズで3行改行を強制) -->
         <div class="flex flex-col mx-auto w-full">
             <h2 class="font-semibold border-t-2 border-b-2 border-white py-4 leading-snug normal-case text-white catchphrase-text w-full">
                 Cutting-Edge Visualization:
@@ -316,13 +302,10 @@
                 with World-Class Optical Diagnostics.
             </h2>
         </div>
-        <!-- 研究室名称と紹介文 -->
         <div class="mt-8 p-4 sm:p-10 rounded-xl w-full bg-black/40 text-center hero-text-block">
-            <!-- 日本語タイトルはtext-3xl sm:text-6xl で1行に収まることを確認済み -->
             <h2 class="text-3xl sm:text-6xl font-extrabold mb-2 leading-tight text-shadow-lg text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
                 高速気体力学研究室
             </h2>
-            <!-- 日本語キャッチコピーはtext-xs sm:text-3xl で1行に収まることを確認済み -->
             <p class="text-xs sm:text-3xl text-yellow-300 mb-6 font-light text-shadow-lg leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                 超音速流れの可視化と衝撃波現象の定量解析
             </p>
@@ -333,6 +316,68 @@
     </div>
 </section>
 
+<section class="section-container my-10" id="news">
+    <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">新着情報（News & Topics）</h2>
+    
+    <div class="overflow-x-auto whitespace-nowrap py-4 -mx-1" id="news-carousel" style="-webkit-overflow-scrolling: touch;">
+        
+        <a href="#research" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
+            <img src="RoundJet.gif" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                Sugwaraさんの論文がJ. Fluid Mech.に採択されました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.11.10</p>
+        </a>
+        
+        <a href="#research" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-primary-blue mb-1">【学会発表】</h4>
+            <img src="DesDiffuser.gif" alt="学会発表の様子" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                M2のXXさんが国際会議で口頭発表を行いました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.10.25</p>
+        </a>
+        
+        <a href="#members" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-orange-500 mb-1">【受賞】</h4>
+            <img src="SquareJet.gif" alt="受賞の様子" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                B4のYYさんが日本機械学会賞を受賞しました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.10.01</p>
+        </a>
+        
+        <a href="#contact" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-gray-600 mb-1">【その他】</h4>
+            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
+                <span class="text-lg text-gray-400">更新情報</span>
+            </div>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                研究室のウェブサイトをリニューアルしました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.09.20</p>
+        </a>
+
+        <a href="#members" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-gray-600 mb-1">【メンバー】</h4>
+            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
+                <span class="text-lg text-gray-400">メンバー画像</span>
+            </div>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                新しく3名の学生が研究室に配属されました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.09.15</p>
+        </a>
+        
+    </div>
+    
+    <div class="mt-8 text-center">
+        <a href="news.html" class="inline-block text-lg text-primary-blue hover:text-red-600 font-semibold transition duration-300 border-b-2 border-primary-blue/50 hover:border-red-600/50 pb-0.5">
+            新着情報の一覧を見る (別ページへ) &gt;
+        </a>
+    </div>
+</section>
 <section class="section-container bg-secondary-gray rounded-xl shadow-inner my-10" id="members">
     <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">メンバー（Members）</h2>
     <div class="space-y-4">
@@ -395,7 +440,6 @@
                 </button>
             </div>
             <img alt="不足膨張円形噴流の非定常特性" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="RoundJet.gif"/>
-            <!-- PDFリンクにdownload属性を付与 -->
             <div class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg" id="paper-list-1">
                 <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
                 <a class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline" download="Sugawara_FTC2021.pdf" href="Papers/Sugawara_FTC2021.pdf">
@@ -415,7 +459,6 @@
                 </button>
             </div>
             <img alt="DESによるコンピューターシュリーレン" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="DesDiffuser.gif"/>
-            <!-- PDFリンクにdownload属性を付与 -->
             <div class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg" id="paper-list-2">
                 <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
                 <a class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline" download="Yamashita_EIF2025.pdf" href="Papers/Yamashita_EIF2025.pdf">
@@ -435,7 +478,6 @@
                 </button>
             </div>
             <img alt="矩形不足膨張噴流の断面の密度場" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="SquareJet.gif"/>
-            <!-- PDFリンクにdownload属性を付与 -->
             <div class="hidden mt-3 p-3 border-t border-gray-200 space-y-2 bg-gray-50 rounded-b-lg" id="paper-list-3">
                 <p class="font-semibold text-gray-700">関連論文 (クリックでダウンロード):</p>
                 <a class="block text-sm text-gray-600 hover:text-red-600 transition duration-300 underline" download="Yoshimi_FMI2025.pdf" href="Papers/Yoshimi_FMI2025.pdf">
@@ -534,12 +576,10 @@
     </div>
 </section>
 
-<!-- フッター -->
 <footer class="bg-primary-blue text-white text-center py-6">
     <p class="text-sm">© 2025 High Speed Gasdynamics Lab. All rights reserved.</p>
 </footer>
 
-<!-- 統合されたJavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const menuButton = document.getElementById('menu-button');
