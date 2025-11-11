@@ -73,16 +73,21 @@
     line-height: 1.2 !important; /* !important を付けて優先度を上げる */
     
     /* モバイルサイズ: 2.5rem */
-    font-size: 2.5rem; 
+    font-size: 2.5rem !important; /* 【推奨】!important で確実に適用 */
 }
         
 /* PCサイズの調整 */
 @media (min-width: 640px) {
     #home-hero h1 {
-        /* PCでも行間を 1.2 に設定して統一 */
-        line-height: 1.2 !important; /* !important を付けて優先度を上げる */
+        /* 【重要】元のPCサイズを !important で強制的に維持 */
+        font-size: 5rem !important; 
+        
+        /* 【修正】行間を広げる設定 (line-height: 1.2は前回提案の値です) */
+        line-height: 1.2 !important; 
     }
 }
+
+
         
         /* 1文字目を大きくする装飾 */
         #home-hero h1 span::first-letter {
