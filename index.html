@@ -96,19 +96,22 @@
             margin-right: -0.1em;
         }
 
-        /* === セクションタイトル(h2)にはCinzelを適用 (キャッチコピーh2は除く) === */
-        .section-container > h2:not(.catchphrase-text) {
-            font-family: 'Cinzel', serif !important; 
-            font-weight: 900 !important;
-            color: #004080 !important; 
-            text-align: center !important; 
-            letter-spacing: 0.15em !important;
-            border-bottom: 4px double #004080 !important; 
-            padding-bottom: 1rem !important;
-            margin-bottom: 3rem !important; 
-            font-size: 2.5rem !important; 
-        }
+       /* === セクションタイトル(h2)にはCinzelを適用 (キャッチコピーh2は除く) === */
+.section-container > h2:not(.catchphrase-text) {
+    font-family: 'Cinzel', serif !important; 
+    font-weight: 900 !important;
+    color: #004080 !important; 
+    text-align: center !important; 
+    /* 【修正】文字間隔を調整（0.15emから0.05emに縮小） */
+    letter-spacing: 0.05em !important; 
+    border-bottom: 4px double #004080 !important; 
+    padding-bottom: 1rem !important;
+    margin-bottom: 3rem !important; 
+    font-size: 2.5rem !important; 
+}
 
+
+        
        　　/* === 英語キャッチコピー専用のフォントとサイズ調整 === */
 .section-container h2.catchphrase-text {
     font-family: Helvetica, Arial, sans-serif !important; 
