@@ -159,6 +159,14 @@
             will-change: transform;
             transition: background-color 0.3s, border-bottom 0.3s;
         }
+
+        /* === ナビゲーションバーの垂直方向の長さ調整 (新規追加) === */
+        /* 内側のコンテナの上下パディングを py-4 (1rem) から 1.5倍の 1.5rem に拡大 */
+        header#main-nav-container div.section-container {
+           padding-top: 1.5rem !important;
+           padding-bottom: 1.5rem !important;
+        }
+
         header#main-nav-container.scrolled {
             background-color: rgba(0, 0, 0, 0.7) !important; 
             backdrop-filter: blur(8px) !important; 
