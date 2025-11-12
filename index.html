@@ -331,36 +331,15 @@
     
     <div class="overflow-x-auto whitespace-nowrap py-4 -mx-1" id="news-carousel" style="-webkit-overflow-scrolling: touch;">
 
-<!-- ロゴ紹介カード -->
-<div onclick="goHomeAndReloadLogo();" 
-     class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top cursor-pointer">
-    <h4 class="text-sm font-bold text-blue-600 mb-1">【研究室ロゴのご紹介】</h4>
-    <img id="logo-img" src="HSGL_Logo.png" alt="研究室ロゴ" 
-        idden whitespace-normal leading-snug">
-        HSGは研究室名を示し、虹色ラインは光学的可視化技術を表現。
-        赤い星状の光はレーザー干渉計を象徴し、外枠は超音速流れのダイナミックさをイメージ。
-    </p>
-</div>
-
-<script>
-function goHomeAndReloadLogo() {
-    // スムーズスクロールで #home-hero に移動
-    const target = document.querySelector('#home-hero');
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // ロゴ画像を再読み込み（キャッシュ回避）
-    const logoImg = document.getElementById('logo-img');
-    if (logoImg) {
-        logoImg.src = 'HSGL_Logo.png?t=' + new Date().getTime();
-    }
-}
-</script>
-
+　　　　 <a href="#home-hero" class="inline-block w-64 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+      　　  <h4 class="text-sm font-bold text-red-600 mb-1">【研究室ロゴ】</h4>
+            <img src="News/HSGL_Logo.png" alt="ロゴマーク" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+              HSGは研究室名を示し、虹色ラインは光学的可視化技術を表現。赤い星状の光はレーザー干渉計を象徴し、外枠は超音速流れのダイナミックさをイメージ。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.11.18</p>
+       　 </a>
         
-        
-
          <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
             <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
             <img src="News/Yamashita_EIF2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
