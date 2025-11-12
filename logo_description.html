@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ロゴと背景の説明</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#004080',
+                        'secondary-gray': '#f4f4f4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .container-padding {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1rem;
+        }
+        .image-container {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-secondary-gray font-sans text-gray-800">
 
+<header class="bg-primary-blue text-white py-4 shadow-lg sticky top-0 z-10">
+    <div class="container-padding flex justify-between items-center">
+        <h1 class="text-2xl font-bold">デザインコンセプト</h1>
+        <a href="index.html" class="bg-white text-primary-blue px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow">
+            ホームへ戻る &gt;
+        </a>
+    </div>
+</header>
+
+<main class="container-padding">
+    
+    <section class="mb-12">
+        <h2 class="text-4xl font-extrabold text-primary-blue mb-6 border-b-4 border-primary-blue pb-3 text-center">
+            研究室ロゴマーク (HSGL_Logo.png)
+        </h2>
+        
+        <div class="md:flex md:space-x-8">
+            <div class="md:w-1/3 flex justify-center mb-6 md:mb-0 image-container">
+                <img src="HSGL_Logo.png" alt="HSGL研究室ロゴマーク" class="w-full max-w-xs h-auto object-contain"/>
+            </div>
+            
+            <div class="md:w-2/3 space-y-4">
+                <p class="text-lg font-semibold text-gray-700">
+                    ロゴマークのモチーフと意味を説明します。
+                </p>
+                <ul class="list-disc list-inside space-y-2 pl-4 text-base">
+                    <li>
+                        <strong class="text-primary-blue">中央の「H」と「S」:</strong> 
+                        研究室名 **H**igh **S**peed Gasdynamics Lab. の頭文字を表しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">流線形のデザイン:</strong> 
+                        高速で流れる**超音速の流れ**や**衝撃波**を抽象的に表現しており、研究室の専門分野を示唆しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">色合い:</strong> 
+                        信頼感、知性、そして精密な工学技術を象徴する**ブルー**を基調とし、アカデミックな雰囲気を強調しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">全体的なイメージ:</strong> 
+                        革新的な技術と、目に見えない現象を捉える**光学計測**のシャープさを表現しています。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-10 border-primary-blue/30"/>
+
+    <section class="mb-12">
+        <h2 class="text-4xl font-extrabold text-primary-blue mb-6 border-b-4 border-primary-blue pb-3 text-center">
+            ホームページ背景画像 (HomeBackground.png)
+        </h2>
+        
+        <div class="md:flex md:space-x-8 flex-col-reverse md:flex-row">
+            <div class="md:w-2/3 space-y-4 mb-6 md:mb-0">
+                 <p class="text-lg font-semibold text-gray-700">
+                    背景画像は、研究室の核となる「高速流動現象の可視化」を体現しています。
+                </p>
+                <ul class="list-disc list-inside space-y-2 pl-4 text-base">
+                    <li>
+                        <strong class="text-primary-blue">画像の正体:</strong> 
+                        この画像は、超音速流れの中に発生した**衝撃波**を、シュリーレン法や干渉計といった光学計測技術で可視化したものです。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">コンセプト:</strong> 
+                        キャッチコピーである「Witness the Invisible (目に見えないものを見る)」を視覚的に表現しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">デザイン効果:</strong> 
+                        この画像を背景にすることで、訪問者に対して研究室が**何を探求しているのか**を一目で伝えるインパクトを与えています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">虹色オーバーレイ:</strong> 
+                        画像の上には、虹色のアニメーション (CSSで実装) が薄く重ねられており、これは研究室の主要な技術である**レインボーシュリーレン法**をイメージしています。
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="md:w-1/3 flex justify-center image-container">
+                <img src="HomeBackground.png" alt="ホームページの背景画像（衝撃波の可視化）" class="w-full max-w-xs h-64 md:h-96 object-cover object-center rounded"/>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-primary-blue text-white text-center py-6 mt-12">
+    <p class="text-sm">© 2025 High Speed Gasdynamics Lab. Design Concept Page.</p>
+</footer>
+
+</body>
+</html>
