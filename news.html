@@ -1,51 +1,110 @@
-<div class="space-y-6 py-4"> 
-     <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
-        <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
-        <img src="News/Yamashita_EIF2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
-        <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-            山下君の論文がExp Fluidsに採択されました。
-        </p>
-        <p class="text-xs text-gray-500 mt-2">2025.10.18</p>
-    </a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HSGLホームページ - 新着情報一覧</title>
     
-    <a href="https://link.springer.com/article/10.1007/s10494-025-00687-y" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
-        <h4 class="text-sm font-bold text-primary-blue mb-1">【論文掲載】</h4>
-        <img src="News/Sakashita_FTC2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
-        <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-            坂下君の論文がFlow Turbul. Combust.に採択されました。
-        </p>
-        <p class="text-xs text-gray-500 mt-2">2025.8.4</p>
-    </a>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&amp;family=Cinzel+Decorative:wght@400;700;900&amp;family=Tangerine:wght@400;700&amp;display=swap" rel="stylesheet"/>
     
-    <a href="#members" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
-        <h4 class="text-sm font-bold text-orange-500 mb-1">【その他】</h4>
-        <img src="News/Homepage.png" alt="ホームページ" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
-        <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-            研究室のウェブサイトを作成しました。
-        </p>
-        <p class="text-xs text-gray-500 mt-2">2025.11.11</p>
-    </a>
-    
-    <a href="#contact" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
-        <h4 class="text-sm font-bold text-gray-600 mb-1">【その他】</h4>
-        <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
-            <span class="text-lg text-gray-400">更新情報</span>
-        </div>
-        <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-            研究室のウェブサイトを作成しました。
-        </p>
-        <p class="text-xs text-gray-500 mt-2">2025.09.20</p>
-    </a>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#004080',
+                        'secondary-gray': '#f4f4f4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* index.htmlから必要なスタイルをコピー */
+        html { scroll-behavior: smooth; }
+        .section-container { max-width: 900px; margin-left: auto; margin-right: auto; padding: 2rem 0.25rem; } 
+        @media (min-width: 640px) { .section-container { padding: 2rem 1rem; } }
+        /* 【重要】画像サイズ制御のため、カード内の画像は h-32（高さ固定）、w-full（親要素の幅いっぱい） */
+        .w-64 img {
+            width: 100%;
+            height: 8rem; /* h-32 = 128px */
+            object-fit: cover;
+        }
+        .text-primary-blue { color: #004080 !important; font-weight: 600 !important; }
+        /* ナビゲーションの高さ調整や Cinzel フォントの設定など、index.htmlの<style>から必要な部分をコピー */
+        .section-container > h2 {
+            font-family: 'Cinzel', serif !important; 
+            font-weight: 900 !important;
+            color: #004080 !important; 
+            text-align: center !important; 
+            letter-spacing: 0.05em !important; 
+            border-bottom: 4px double #004080 !important; 
+            padding-bottom: 1rem !important;
+            margin-bottom: 3rem !important; 
+            font-size: 2.5rem !important; 
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
 
-    <a href="#members" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
-        <h4 class="text-sm font-bold text-gray-600 mb-1">【メンバー】</h4>
-        <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
-            <span class="text-lg text-gray-400">メンバー画像</span>
-        </div>
-        <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-            新しく６名の学生が研究室に配属されました。
-        </p>
-        <p class="text-xs text-gray-500 mt-2">2025.09.15</p>
-    </a>
-    
-</div>
+<section class="section-container my-10" id="news-list">
+    <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">新着情報一覧（All News）</h2>
+
+    <div class="space-y-6 py-4"> <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+            <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
+            <img src="News/Yamashita_EIF2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                山下君の論文がExp Fluidsに採択されました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.10.18</p>
+        </a>
+        
+        <a href="https://link.springer.com/article/10.1007/s10494-025-00687-y" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+            <h4 class="text-sm font-bold text-primary-blue mb-1">【論文掲載】</h4>
+            <img src="News/Sakashita_FTC2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                坂下君の論文がFlow Turbul. Combust.に採択されました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.8.4</p>
+        </a>
+        
+        <a href="#members" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+            <h4 class="text-sm font-bold text-orange-500 mb-1">【その他】</h4>
+            <img src="News/Homepage.png" alt="ホームページ" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                研究室のウェブサイトを作成しました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.11.11</p>
+        </a>
+        
+        <a href="#contact" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+            <h4 class="text-sm font-bold text-gray-600 mb-1">【その他】</h4>
+            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
+                <span class="text-lg text-gray-400">更新情報</span>
+            </div>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                研究室のウェブサイトを作成しました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.09.20</p>
+        </a>
+
+        <a href="#members" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+            <h4 class="text-sm font-bold text-gray-600 mb-1">【メンバー】</h4>
+            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
+                <span class="text-lg text-gray-400">メンバー画像</span>
+            </div>
+            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
+                新しく６名の学生が研究室に配属されました。
+            </p>
+            <p class="text-xs text-gray-500 mt-2">2025.09.15</p>
+        </a>
+        
+    </div>
+</section>
+
+</body>
+</html>
