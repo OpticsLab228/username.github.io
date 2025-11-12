@@ -28,14 +28,25 @@
         html { scroll-behavior: smooth; }
         .section-container { max-width: 900px; margin-left: auto; margin-right: auto; padding: 2rem 0.25rem; } 
         @media (min-width: 640px) { .section-container { padding: 2rem 1rem; } }
-        /* 【重要】画像サイズ制御のため、カード内の画像は h-32（高さ固定）、w-full（親要素の幅いっぱい） */
+        
+        /* === 【最重要】カード幅を強制的に固定し、中央寄せを維持するCSS === */
+        /* カード（aタグ）の幅 w-64 を強制的に256pxに固定 */
+        .block.w-64 {
+            width: 256px !important;
+            max-width: 100% !important; /* モバイルで画面幅を超えないようにする */
+        }
+        
+        /* カード内の画像は親要素 (256px) の幅いっぱい (w-full) に表示される */
         .w-64 img {
             width: 100%;
             height: 8rem; /* h-32 = 128px */
             object-fit: cover;
         }
+        /* ============================================================= */
+
         .text-primary-blue { color: #004080 !important; font-weight: 600 !important; }
-        /* ナビゲーションの高さ調整や Cinzel フォントの設定など、index.htmlの<style>から必要な部分をコピー */
+        
+        /* セクションタイトル(h2)のスタイル */
         .section-container > h2 {
             font-family: 'Cinzel', serif !important; 
             font-weight: 900 !important;
@@ -54,7 +65,8 @@
 <section class="section-container my-10" id="news-list">
     <h2 class="text-3xl font-bold border-b-4 border-primary-blue pb-2 mb-6 text-primary-blue">新着情報一覧（All News）</h2>
 
-    <div class="space-y-6 py-4"> <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
+    <div class="space-y-6 py-4"> 
+        <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="block w-64 mx-auto p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300">
             <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
             <img src="News/Yamashita_EIF2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
             <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
