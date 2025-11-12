@@ -331,15 +331,22 @@
     
     <div class="overflow-x-auto whitespace-nowrap py-4 -mx-1" id="news-carousel" style="-webkit-overflow-scrolling: touch;">
 
+
 <!-- ロゴ紹介カード -->
 <div onclick="goHomeAndReloadLogo();" 
      class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top cursor-pointer">
     <h4 class="text-sm font-bold text-blue-600 mb-1">研究室ロゴのご紹介</h4>
-    HSGL_Logo.png
+    <!-- ロゴ画像を小さく中央に配置 -->
+    <div class="flex justify-center items-center mb-2 h-32 bg-gray-50 rounded-lg border">
+        HSGL_Logo.png
+    </div>
+    <!-- 説明文 -->
     <p class="text-gray-800 text-sm overflow-hidden whitespace-normal leading-snug">
         HSGは研究室名を示し、虹色ラインは光学的可視化技術を表現。
         赤い星状の光はレーザー干渉計を象徴し、外枠は超音速流れのダイナミックさをイメージ。
     </p>
+    <!-- 空白を追加して高さを合わせる -->
+    <div class="mt-2 h-4"></div>
 </div>
 
 <script>
@@ -358,6 +365,8 @@ function goHomeAndReloadLogo() {
 }
 </script>
 
+
+        
         
 
          <a href="https://link.springer.com/article/10.1007/s00348-025-04131-9" target="_blank" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
