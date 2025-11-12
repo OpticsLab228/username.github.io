@@ -349,37 +349,60 @@
            <p class="text-xs text-gray-500 mt-2">2025.8.4</p>
         </a>
         
-        <a href="#home-hero" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
-            <h4 class="text-sm font-bold text-orange-500 mb-1">【その他】</h4>
-            <img src="News/Homepage.png" alt="ホームページ" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
-            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-                研究室のウェブサイトを作成しました。
-            </p>
-            <p class="text-xs text-gray-500 mt-2">2025.11.11</p>
-        </a>
-        
-        <a href="#home-hero" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
-            <h4 class="text-sm font-bold text-gray-600 mb-1">【その他】</h4>
-            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
-                <span class="text-lg text-gray-400">更新情報</span>
-            </div>
-            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-                研究室のウェブサイトを作成しました。
-            </p>
-            <p class="text-xs text-gray-500 mt-2">2025.09.20</p>
-        </a>
+        <!-- 新着情報カード -->
+#home-hero
+    HSGL_Logo.png
+    <div class="news-content">
+        <h3>研究室ロゴのご紹介</h3>
+        <p>
+            HSGは研究室名を示し、中央の虹色ラインは光学的可視化技術による流れ構造の解明を表現。
+            赤い星状の光はレーザー干渉計による精密計測を象徴し、外枠の流線形は超音速流れのダイナミックさをイメージしています。
+        </p>
+    </div>
+</div>
 
-        <a href="#home-hero" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
-            <h4 class="text-sm font-bold text-gray-600 mb-1">【メンバー】</h4>
-            <div class="w-full h-32 bg-secondary-gray flex items-center justify-center mb-2 rounded-lg border">
-                <span class="text-lg text-gray-400">メンバー画像</span>
-            </div>
-            <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug">
-                新しく６名の学生が研究室に配属されました。
-            </p>
-            <p class="text-xs text-gray-500 mt-2">2025.09.15</p>
-        </a>
+<style>
+.news-card {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    cursor: pointer;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+.news-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.news-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 16px;
+}
+.news-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.2em;
+    color: #333;
+}
+.news-content p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.4em;
+}
+</style>
 
+         <a href="#home-hero" class="inline-block w-64 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
+            <h4 class="text-sm font-bold text-gray-600 mb-1">【研究室ニュース】</h4>
+           <!-- text-justifyクラスを追加して、文章を両端揃えにしました -->
+           <p class="text-gray-800 text-sm overflow-hidden whitespace-normal font-semibold leading-snug text-justify">
+           新たに6名の学生が研究室に加わりました。現在、年内を目標に研究テーマを決定する準備を進めています。また、12月には親睦会を開催し、メンバー間の交流を深める予定です。
+           </p>
+           <p class="text-xs text-gray-500 mt-2">2025.11.19</p>
+        </a>
+ 
          <a href="https://www.sciencedirect.com/science/article/pii/S0955598625001372" target="_blank" class="inline-block w-64 mr-4 p-4 border border-gray-200 rounded-xl shadow-md bg-white hover:shadow-lg transition duration-300 align-top">
            <h4 class="text-sm font-bold text-red-600 mb-1">【論文掲載】</h4>
            <img src="News/Yoshimi_FMI2025.png" alt="論文の図" class="w-full h-32 object-cover object-center mb-2 rounded-lg border"/>
