@@ -455,7 +455,7 @@
             <div class="flex items-start">
                 <span aria-hidden="true" class="text-xl text-red-600 mr-2 mt-0.5">★</span>
                 <button class="flex-1 text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none" id="toggle-paper-1">
-                    軸対称ノズルからの不足膨張噴流の特性に関する研究 (論文を見る 🔽)
+                    軸対称ノズルからの不足膨張噴流の特性 (関連論文を見る 🔽)
                 </button>
             </div>
             <img alt="不足膨張円形噴流の非定常特性" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="RoundJet.gif"/>
@@ -474,7 +474,7 @@
             <div class="flex items-start">
                 <span aria-hidden="true" class="text-xl text-red-600 mr-2 mt-0.5">★</span>
                 <button class="flex-1 text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none" id="toggle-paper-2">
-                    遷音速ディフューザにおける衝撃波の振動現象の解明 (論文を見る 🔽)
+                    遷音速ディフューザにおける衝撃波の振動現象 (関連論文を見る 🔽)
                 </button>
             </div>
             <img alt="DESによるコンピューターシュリーレン" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="DesDiffuser.gif"/>
@@ -493,7 +493,7 @@
             <div class="flex items-start">
                 <span aria-hidden="true" class="text-xl text-red-600 mr-2 mt-0.5">★</span>
                 <button class="flex-1 text-left block text-primary-blue font-medium hover:text-red-600 transition duration-300 focus:outline-none" id="toggle-paper-3">
-                    非軸対称ノズルからの不足膨張噴流の三次元構造解析 (論文を見る 🔽)
+                    非軸対称ノズルからの不足膨張噴流の三次元構造解析 (関連論文を見る 🔽)
                 </button>
             </div>
             <img alt="矩形不足膨張噴流の断面の密度場" class="mt-2 rounded-md mx-auto w-full max-w-xs md:max-w-md" src="SquareJet.gif"/>
@@ -661,15 +661,15 @@
                     const isHidden = contentElement.classList.contains('hidden');
                     
                     // ボタンのテキストを更新して、表示/非表示の状態をフィードバック
-                    let action = isHidden ? (type === 'paper' ? '論文を見る 🔽' : '写真を見る 🔽') : (type === 'paper' ? '論文を隠す 🔼' : '写真を隠す 🔼');
+                    let action = isHidden ? (type === 'paper' ? '関連論文を見る 🔽' : '写真を見る 🔽') : (type === 'paper' ? '関連論文を隠す 🔼' : '写真を隠す 🔼');
                     toggleButton.innerHTML = `${originalText} (${action})`;
                 });
             }
         };
 
         const researchItems = [
-            { id: 1, text: '軸対称ノズルからの不足膨張噴流の特性に関する研究' },
-            { id: 2, text: '遷音速ディフューザにおける衝撃波の振動現象の解明' },
+            { id: 1, text: '軸対称ノズルからの不足膨張噴流の特性' },
+            { id: 2, text: '遷音速ディフューザにおける衝撃波の振動現象' },
             { id: 3, text: '非軸対称ノズルからの不足膨張噴流の三次元構造解析' },
         ];
         researchItems.forEach(item => toggleResearchAndFacilities(item, 'paper'));
