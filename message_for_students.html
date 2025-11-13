@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>受験生へのメッセージ | HSGL</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        // 既存のカラー設定を適用
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#004080', // 研究室のキーカラー
+                        'secondary-gray': '#f4f4f4', // 背景色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .container-padding {
+            max-width: 960px; /* 読みやすさを考慮した最大幅 */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem 1rem;
+        }
+        /* 日本語用の両端揃えスタイル（読みやすさのためここでは使用を保留。必要に応じて追加してください） */
+        /* .text-justify-jp { text-align: justify; text-justify: inter-ideograph; } */
+    </style>
+</head>
+<body class="bg-secondary-gray font-sans text-gray-800">
 
+<header class="bg-primary-blue text-white py-4 shadow-lg sticky top-0 z-10">
+    <div class="container-padding flex justify-between items-center">
+        <h1 class="text-2xl font-bold">受験生へのメッセージ</h1>
+        <a href="index.html" class="bg-white text-primary-blue px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow">
+            ホームへ戻る &gt;
+        </a>
+    </div>
+</header>
+
+<main class="container-padding">
+    
+    <section class="mb-12 bg-white p-6 md:p-10 rounded-xl shadow-2xl">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-center text-primary-blue mb-8">
+            <span class="block mb-2">🚀 未踏の領域へ、</span>
+            <span class="block">時間軸を超えて挑む君へ</span>
+        </h2>
+        
+        <p class="text-lg text-center mb-10 border-b pb-4">
+            受験という大きな挑戦に臨んでいる皆さんを心から応援します。皆さんがこれから選ぶ道は、自身の未来、そして人類の未来につながる「時間軸の始まり」となるでしょう。
+        </p>
+
+        <div class="space-y-8 mb-10">
+            <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
+                1. ロゴと背景に込められた研究の哲学
+            </h3>
+            <p class="leading-relaxed">
+                私たちの研究室のロゴマークは、単なるシンボルではありません。それは、我々の**研究の哲学**そのものです。
+            </p>
+            
+            <div class="bg-primary-blue/5 p-6 rounded-lg">
+                <p class="mb-3 text-gray-800">
+                    ロゴの全体像は、**超音速流れ**を生み出す**風洞試験部内**を象徴しています。中央に描かれた「S」は、**衝撃波**による密度の急激な変化を示し、私たちは**レインボーシュリーレン偏向法**という高度な**光学計測技術**によって、その**物理的な不連続性**を厳密に捉えます。
+                </p>
+                <p class="text-gray-800">
+                    ホームページの背景画は、さらに壮大なビジョンを表しています。左の**古代のパウエル湖**（過去）から、右の**北九州の夜景**（現代）、そしてV字の下に描かれた**未知の惑星**（未来）へと、**衝撃波**を境に**時間軸が不連続に跳躍**する様子を描いています。私たちは、**精密な計測技術**をもって、この**過去・現代・未来**という広大なテーマを高速気体力学の視点から探求しているのです。
+                </p>
+            </div>
+        </div>
+
+        <div class="space-y-8 mb-10">
+            <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
+                2. 世界の最前線で研究する
+            </h3>
+            
+            <p class="leading-relaxed">
+                私たちが目指すのは、日本国内に留まらない、**真の国際研究**です。そのための環境と実績が、本研究室にはあります。
+            </p>
+            
+            <ul class="list-disc list-inside space-y-3 pl-4 text-base">
+                <li>
+                    大学院に進学した学生は、すぐに**国際学会の舞台**に立ち、研究成果を発表しています。
+                </li>
+                <li>
+                    その成果は、**レベルの高い英文学術誌**に数多く掲載され、実際に**国際的な賞**も受賞しています。
+                </li>
+                <li>
+                    過去には**NASAのGlenn研究所やLangleyの研究者**が当研究室を訪問し、講演を行うなど、世界的な研究ネットワークを構築しています。
+                </li>
+                <li>
+                    本研究室は、**博士後期課程への進学者も非常に多く**、将来、世界的なリーダーシップを発揮できる高度な研究者を育成しています。
+                </li>
+                <li>
+                    近い将来、**海外のレベルの高い研究室との共同研究**を本格的に始動させます。
+                </li>
+            </ul>
+        </div>
+        
+        <div class="space-y-8 pt-6 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
+                3. 君の「革新的な挑戦」を待つ
+            </h3>
+            
+            <p class="leading-relaxed font-semibold text-center text-xl text-primary-blue/90">
+                皆さんが持つ知的好奇心と探求心は、私たちが目指す「未踏領域への革新的な挑戦」と完全に一致します。
+            </p>
+            
+            <ul class="space-y-2 text-center text-gray-600">
+                <li>✅ 目に見えない現象の本質を捉えたい。</li>
+                <li>✅ 精密な光学技術を駆使して世界を驚かせたい。</li>
+                <li>✅ 物理法則を解明し、人類の未来に貢献したい。</li>
+            </ul>
+            
+            <p class="text-center mt-6 text-lg">
+                もしあなたが、このような熱い想いを抱いているなら、ぜひ私たちの研究室の扉を叩いてください。私たちは、その情熱と能力を**世界の舞台**で開花させるための最高水準の環境を提供することを約束します。
+            </p>
+            
+            <p class="text-center font-bold text-xl mt-8 text-primary-blue">
+                共に、未来の科学を創造しましょう。
+            </p>
+        </div>
+
+    </section>
+
+    <div class="text-center mt-10">
+        <p class="text-gray-600">
+            **[研究室名]** 教員一同より
+        </p>
+    </div>
+
+</main>
+
+<footer class="bg-primary-blue text-white text-center py-6 mt-12">
+    <p class="text-sm">© [現在の年] High Speed Gasdynamics Lab. Message for Students.</p>
+</footer>
+
+</body>
+</html>
