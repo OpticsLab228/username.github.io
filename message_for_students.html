@@ -30,8 +30,13 @@
             margin-right: auto;
             padding: 2rem 1rem;
         }
-        /* 日本語用の両端揃えスタイル。*/
-        .text-justify-jp { text-align: justify; text-justify: inter-ideograph; } 
+        /* 【重要】日本語用の両端揃えスタイル */
+        .text-justify-jp { 
+            text-align: justify; 
+            text-justify: inter-ideograph; 
+            /* 最後の行もjustifyにする場合は以下を使用。ブラウザによって動作が異なる */
+            /* text-align-last: justify; */
+        } 
     </style>
 </head>
 <body class="bg-secondary-gray font-sans text-gray-800">
@@ -59,40 +64,22 @@
 
         <div class="space-y-8 mb-10">
             <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
-                1. ロゴと背景に込められた研究の哲学
-            </h3>
-            <p class="leading-relaxed">
-                私たちの研究室のロゴマークは、単なるシンボルではありません。それは、我々の**研究の哲学**そのものです。
-            </p>
-            
-            <div class="bg-primary-blue/5 p-6 rounded-lg">
-                <p class="mb-3 text-gray-800">
-                    ロゴの全体像は、**超音速流れ**を生み出す**風洞試験部内**を象徴しています。中央に描かれた「S」は、**衝撃波**による密度の急激な変化を示し、私たちは**レインボーシュリーレン偏向法**という高度な**光学計測技術**によって、その**物理的な不連続性**を厳密に捉えます。
-                </p>
-                <p class="text-gray-800">
-                    ホームページの背景画は、さらに壮大なビジョンを表しています。左の**古代のパウエル湖**（過去）から、右の**北九州の夜景**（現代）、そしてV字の下に描かれた**未知の惑星**（未来）へと、**衝撃波**を境に**時間軸が不連続に跳躍**する様子を描いています。私たちは、**精密な計測技術**をもって、この**過去・現代・未来**という広大なテーマを高速気体力学の視点から探求しているのです。
-                </p>
-            </div>
-        </div>
-
-        <div class="space-y-8 mb-10">
-            <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
-                2. 世界の最前線で研究する
+                1. 世界の最前線で研究
             </h3>
             
-            <p class="leading-relaxed">
+            <p class="leading-relaxed text-justify-jp">
                 私たちが目指すのは、日本国内に留まらない、**真の国際研究**です。そのための環境と実績が、本研究室にはあります。
             </p>
             
-            <ul class="list-disc list-inside space-y-3 pl-4 text-base">
+            <ul class="list-disc list-inside space-y-3 pl-4 text-base text-justify-jp">
                 <li>
-                    大学院に進学した学生は、すぐに**国際学会の舞台**に立ち、研究成果を発表しています。
+                    大学院に進学した学生は、すぐに**国際学会の舞台**に立ち、研究成果を発表します。
                 </li>
                 <li>
                     その成果は、**レベルの高い英文学術誌**に数多く掲載され、実際に**国際的な賞**も受賞しています。
                 </li>
                 <li>
-                    過去には**NASAのGlenn研究所やLangleyの研究者**が当研究室を訪問し、講演を行うなど、世界的な研究ネットワークを構築しています。
+                    過去には**NASAのGlenn研究所やLangley研究所の研究者**が当研究室を訪問し、講演を行うなど、世界的な研究ネットワークを構築しています。
                 </li>
                 <li>
                     本研究室は、**博士後期課程への進学者も非常に多く**、将来、世界的なリーダーシップを発揮できる高度な研究者を育成しています。
@@ -105,11 +92,11 @@
         
         <div class="space-y-8 pt-6 border-t border-gray-200">
             <h3 class="text-2xl font-bold text-gray-700 border-l-4 border-primary-blue pl-3">
-                3. 君の「革新的な挑戦」を待つ
+                2. 未踏領域への挑戦
             </h3>
             
             <p class="leading-relaxed font-semibold text-center text-xl text-primary-blue/90">
-                皆さんが持つ知的好奇心と探求心は、私たちが目指す「未踏領域への革新的な挑戦」と完全に一致します。
+                あなたが持つ知的好奇心と探求心は、私たちが目指す「未踏領域への革新的な挑戦」と完全に一致します。
             </p>
             
             <ul class="space-y-2 text-center text-gray-600">
