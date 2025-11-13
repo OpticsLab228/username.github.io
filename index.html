@@ -181,9 +181,10 @@
             font-weight: 600 !important;
         }
 
-       /* [修正] ナビゲーションリンクの文字サイズを標準的な大きさに縮小 */
+       /* [新規追加] ナビゲーションリンクの文字サイズを大きくする */
        header#main-nav-container nav a, #mobile-menu a {
-       font-size: 1rem !important; /* 1.25rem から 1rem に変更 */
+       /* text-lg相当: 1rem (16px) -> 1.25rem (text-x1相当) に拡大 */
+       font-size: 1.25rem !important; 
        }
        
         /* === ロゴの視認性向上 (修正: サイズ拡大) === */
