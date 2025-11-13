@@ -45,7 +45,7 @@
                 width: 250px; /* PCサイズでロゴ画像コンテナの幅を固定 */
                 height: 250px; /* 高さを合わせる */
             }
-            /* 背景画像の画像は幅を中程度に固定 */
+            /* 背景画像の画像は幅を中程度に固定 (このスタイルは、新しいレイアウトでは無効化されます) */
             #background-image-container {
                 width: 400px; /* PCサイズで背景画像コンテナの幅を固定 */
             }
@@ -75,44 +75,35 @@
             <div id="logo-image-container" class="flex justify-center mb-6 md:mb-0 image-container">
                 <img src="HSGL_Logo.png" alt="HSGL研究室ロゴマーク" class="w-full max-w-xs h-full object-contain"/>
             </div>
-
-
-
-
-
-
-           <div class="md:flex-1 space-y-4">
-    <p class="text-lg font-semibold text-gray-700">
-        ロゴマークは、研究室名と主要な研究テーマである「高速流動現象の計測」を象徴的に表現しています。
-    </p>
-    <ul class="list-disc list-inside space-y-3 pl-4 text-base">
-        <li>
-            <strong class="text-primary-blue">頭文字（H, S, G）：</strong> 
-            研究室名 **H**igh **S**peed **G**asdynamics Lab. の核となる言葉の頭文字を表しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">中央の「S」の流線形：</strong> 
-            **衝撃波による急激な密度上昇**をイメージしており、特に**レインボーシュリーレン偏向法による定量計測結果**の美しさと精密さを表現しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">赤い貫通線：</strong> 
-            「H」を突き抜ける赤い線は、高精度な**レーザー光**を用いた光学計測（レーザー干渉計、PIVなど）を象徴しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">灰色の縞模様：</strong> 
-            「H」の左側に描かれた灰色の縞模様は、**レーザー干渉計**によって得られる**干渉縞**のイメージであり、密度場の精密解析を表します。
-        </li>
-        <li>
-            <strong class="text-primary-blue">HとGから伸びる線：</strong> 
-            「H」と「G」から外側へ伸びる流線は、研究対象である**超音速流れ**（ジェットや風洞流れ）のダイナミックな挙動を象徴しています。
-        </li>
-    </ul>
-</div>
-
-
-
-
-        
+            
+            <div class="md:flex-1 space-y-4">
+                <p class="text-lg font-semibold text-gray-700">
+                    ロゴマークは、研究室名と主要な研究テーマである「高速流動現象の計測」を象徴的に表現しています。
+                </p>
+                <ul class="list-disc list-inside space-y-3 pl-4 text-base">
+                    <li>
+                        <strong class="text-primary-blue">頭文字（H, S, G）：</strong> 
+                        研究室名 **H**igh **S**peed **G**asdynamics Lab. の核となる言葉の頭文字を表しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">中央の「S」の流線形：</strong> 
+                        **衝撃波による急激な密度上昇**をイメージしており、特に**レインボーシュリーレン偏向法による定量計測結果**の美しさと精密さを表現しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">赤い貫通線：</strong> 
+                        「H」を突き抜ける赤い線は、高精度な**レーザー光**を用いた光学計測を象徴しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">灰色の縞模様：</strong> 
+                        「S」の右側に描かれた灰色の縞模様は、**レーザー干渉計**によって得られる**干渉縞**のイメージであり、密度場の精密解析を表します。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">HとGから伸びる線：</strong> 
+                        「H」と「G」から外側へ伸びて全体を囲む黒い線は、研究対象である超音速流動および風洞試験部内の流れのダイナミックな流線の輪郭を象徴しています。
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <hr class="my-10 border-primary-blue/30"/>
@@ -122,49 +113,48 @@
             ホームページ背景画像
         </h2>
         
-        <div class="md:flex md:space-x-8">
+        <div class="space-y-8">
             
-            <div id="background-image-container" class="flex justify-center mb-6 md:mb-0 image-container">
-                <img src="HomeBackground.png" alt="ホームページの背景画像（衝撃波の可視化）" class="w-full h-full object-cover object-center rounded"/>
+            <div class="w-full flex justify-center mb-6 image-container p-4">
+                <img src="HomeBackground.png" alt="ホームページの背景画像（衝撃波の可視化）" 
+                     class="w-full h-auto max-h-[400px] object-contain object-center rounded border border-gray-300"/>
             </div>
 
-
-            <div class="md:flex-1 space-y-4">
-     <p class="text-lg font-semibold text-gray-700">
-        背景画像は、単なる風景ではなく、研究テーマ、場所、そして**「過去・現代・未来」への時間軸の移動**という、研究室の壮大なコンセプトを表現した合成デザインです。
-    </p>
-    <ul class="list-disc list-inside space-y-3 pl-4 text-base">
-        <li>
-            <strong class="text-primary-blue">左側の昼の景色（過去）：</strong> 
-            古代のイメージを持つ**アリゾナ州パウエル湖**の風景（映画『猿の惑星』の不時着地）であり、**過去・古代**、そして**時間軸の連続性**を象徴しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">右側の夜景（現代）：</strong> 
-            研究拠点の地元、**北九州市の皿倉山**からの美しい夜景（日本三大夜景）であり、**現代**の科学技術と研究室の所在地を示しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">中央のV字模様（衝撃波）：</strong> 
-            **超音速流れに発生する衝撃波**を象徴しており、特に**レインボーシュリーレン偏向法による計測画像**をイメージしています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">不連続な風景変化：</strong> 
-            中央の衝撃波を境に、**左側の昼の風景が右側の夜景へと不連続に変化**しており、これが高速流れにおける**物理的な不連続性**（衝撃波）と**時間軸の移動**を表現しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">月と光学レンズ：</strong> 
-            月を囲む円形の模様は、研究室の根幹である**精密な光学計測**に用いられる**レンズやミラー**を表現しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">V字の下（未来）：</strong> 
-            V字の底部に描かれた、宇宙から地球を眺めるイメージは、人類が将来住んでいるであろう**ある惑星から地球を見つめる視点**、すなわち**未来**を示唆しています。
-        </li>
-        <li>
-            <strong class="text-primary-blue">赤い貫通線：</strong> 
-            V字模様を左から右へ突き抜ける赤い線は、研究に不可欠な**レーザー光**の流れと、**超音速流れの運動方向**を表現しています。
-        </li>
-    </ul>
-</div>
-
+            <div class="space-y-4">
+                 <p class="text-lg font-semibold text-gray-700">
+                    背景画像は、単なる風景ではなく、研究テーマ、場所、そして**「過去・現代・未来」への時間軸の移動**という、研究室の壮大なコンセプトを表現した合成デザインです。
+                </p>
+                <ul class="list-disc list-inside space-y-3 pl-4 text-base">
+                    <li>
+                        <strong class="text-primary-blue">左側の昼の景色（過去）：</strong> 
+                        古代のイメージを持つ**アリゾナ州パウエル湖**の風景（映画『猿の惑星』の不時着地）であり、**過去・古代**、そして**時間軸の連続性**を象徴しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">右側の夜景（現代）：</strong> 
+                        研究拠点の地元、**北九州市の皿倉山**からの美しい夜景（日本三大夜景）であり、**現代**の科学技術と研究室の所在地を示しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">中央のV字模様（衝撃波）：</strong> 
+                        **超音速流れに発生する衝撃波**を象徴しており、特に**レインボーシュリーレン偏向法による計測画像**をイメージしています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">不連続な風景変化：</strong> 
+                        中央の衝撃波を境に、**左側の昼の風景が右側の夜景へと不連続に変化**しており、これが高速流れにおける**物理的な不連続性**（衝撃波）と**時間軸の移動**を表現しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">月と光学レンズ：</strong> 
+                        月を囲む円形の模様は、研究室の根幹である**精密な光学計測**に用いられる**レンズやミラー**を表現しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">V字の下（未来）：</strong> 
+                        V字の底部に描かれた、宇宙から地球を眺めるイメージは、人類が将来住んでいるであろう**ある惑星から地球を見つめる視点**、すなわち**未来**を示唆しています。
+                    </li>
+                    <li>
+                        <strong class="text-primary-blue">赤い貫通線：</strong> 
+                        V字模様を左から右へ突き抜ける赤い線は、研究に不可欠な**レーザー光**の流れと、**超音速流れの運動方向**を表現しています。
+                    </li>
+                </ul>
+            </div>
             
         </div>
     </section>
