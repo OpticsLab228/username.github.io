@@ -693,7 +693,7 @@
 
 // --- ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
 // ヘッダーの高さをオフセットとして設定 (h-17, 約68px)
-        const HEADER_HEIGHT = 68; 
+        const HEADER_HEIGHT = 170;  //68から170に修正
 
         document.querySelectorAll('#main-nav-container a[href^="#"], #mobile-menu a[href^="#"], #header-logo-link[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
