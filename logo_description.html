@@ -50,6 +50,12 @@
                 width: 400px; /* PCサイズで背景画像コンテナの幅を固定 */
             }
         }
+           .text-justify-jp {
+            text-align: justify;
+            text-justify: inter-ideograph;
+            /* 最後の行もjustifyを適用するためのトリック（ブラウザにより動作が異なる場合があります） */
+            /* text-align-last: justify; */
+
     </style>
 </head>
 <body class="bg-secondary-gray font-sans text-gray-800">
@@ -76,12 +82,12 @@
                 <img src="HSGL_Logo.png" alt="HSGL研究室ロゴマーク" class="w-full max-w-xs h-full object-contain"/>
             </div>
             
-            <div class="md:flex-1 space-y-4">
-                <p class="text-lg font-semibold text-gray-700">
+            <div class="space-y-4">
+                <p class="text-lg font-semibold text-gray-700 text-justify-jp">
                    ロゴマークは、「高速流動現象の可視化」、それを支える「先端的な光学計測」という、二つの主要テーマを凝縮したシンボルです。
                 </p>
-                <ul class="list-disc list-inside space-y-3 pl-4 text-base">
-                    <li>
+                <ul class="list-disc list-inside space-y-3 pl-4 text-base text-justify-jp">
+                     <li>
                         <strong class="text-primary-blue">頭文字（H, S, G）：</strong> 
                         研究室名 High Speed Gasdynamics Lab.の核となる頭文字を表現しています。特に、HとGから伸びてロゴ全体を取り囲む黒い線によって規定される領域は、研究の舞台である風洞試験部内を象徴しています。この全体像は、超音速流れの中に発生する衝撃波を可視化計測しているというコンセプトに基づき構成されています。
                     </li>
@@ -122,10 +128,10 @@
             </div>
 
             <div class="space-y-4">
-                 <p class="text-lg font-semibold text-gray-700">
+                 <p class="text-lg font-semibold text-gray-700 text-justify-jp">
                     背景画像は、単なる風景ではなく、研究テーマ、場所、そして**「過去・現代・未来」への時間軸の移動**という、研究室の壮大なコンセプトを表現した合成デザインです。
                 </p>
-                <ul class="list-disc list-inside space-y-3 pl-4 text-base">
+                <ul class="list-disc list-inside space-y-3 pl-4 text-base text-justify-jp">
                     <li>
                         <strong class="text-primary-blue">左側の昼の景色（過去）：</strong> 
                         古代のイメージを持つ**アメリカ合衆国のユタ州とアリゾナ州にまたがるパウエル湖**の風景（映画『猿の惑星』（1968年公開）の不時着地）であり、過去と未知の世界を示唆し、時間軸の始まりを表します。
@@ -153,8 +159,6 @@
                     <li>
                         <strong class="text-primary-blue">赤い貫通線：</strong> 
                         V字模様を左から右へ突き抜ける赤い線は、超音速流れの精密な光学計測の根幹をなす**レーザー光**を表現しています。
-
-
                         
                     </li>
                 </ul>
