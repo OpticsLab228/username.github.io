@@ -266,16 +266,37 @@
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
         </button>
         
-        <nav class="hidden sm:flex space-x-6">
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#home-hero">ホーム</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#news">新着情報</a> <a class="text-white hover:text-white transition duration-300 font-medium" href="#members">メンバー</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities">実験設備</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#research">研究テーマ</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications">出版物</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#career">進路</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="message_for_students.html">受験生へ</a>
-            <a class="text-white hover:text-white transition duration-300 font-medium" href="#contact">連絡先</a>
-        </nav>
+       <nav class="hidden sm:flex space-x-4 items-center">
+          <a class="text-white hover:text-white transition duration-300 font-medium px-2" href="#home-hero">ホーム</a>
+          <a class="text-white hover:text-white transition duration-300 font-medium px-2" href="#news">新着情報</a> 
+          <a class="text-white hover:text-white transition duration-300 font-medium px-2" href="#members">メンバー</a>
+          <a class="text-white hover:text-white transition duration-300 font-medium px-2" href="#facilities">実験設備</a>
+
+          <div class="relative group" id="dropdown-research">
+              <button class="text-white hover:text-white transition duration-300 font-medium px-2 py-1 flex items-center">
+                研究
+                <svg class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </button>
+          <div class="absolute right-0 mt-2 w-48 bg-primary-blue bg-opacity-95 rounded-lg shadow-xl hidden group-hover:block z-50">
+            <a href="#research" class="block px-4 py-2 text-white hover:bg-black/20">研究テーマ</a>
+            <a href="#publications" class="block px-4 py-2 text-white hover:bg-black/20">出版物</a>
+        </div>
+    </div>
+    
+    <div class="relative group" id="dropdown-students">
+        <button class="text-white hover:text-white transition duration-300 font-medium px-2 py-1 flex items-center">
+            学生向け
+            <svg class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        </button>
+        <div class="absolute right-0 mt-2 w-48 bg-primary-blue bg-opacity-95 rounded-lg shadow-xl hidden group-hover:block z-50">
+            <a href="#career" class="block px-4 py-2 text-white hover:bg-black/20">進路</a>
+            <a href="message_for_students.html" class="block px-4 py-2 text-white hover:bg-black/20">受験生へ</a>
+        </div>
+    </div>
+
+    <a class="text-white hover:text-white transition duration-300 font-medium px-2" href="#contact">連絡先</a>
+</nav>
+      
     </div>
 </header>
 
@@ -283,6 +304,7 @@
     <div class="flex flex-col p-4 space-y-2">
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#home-hero">ホーム</a>
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#news">新着情報</a> <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#members">メンバー</a>
+        <a class="text-white hover:text-white transition duration-300 font-medium" href="#members">メンバー</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#facilities">実験設備</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#research">研究テーマ</a>
         <a class="text-white hover:text-white transition duration-300 font-medium" href="#publications">出版物</a>
