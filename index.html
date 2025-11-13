@@ -691,28 +691,39 @@
         ];
         facilityItems.forEach(item => toggleResearchAndFacilities(item, 'facility'));
 
-        // --- ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
-        document.querySelectorAll('#main-nav-container a[href^="#"], #mobile-menu a[href^="#"], #header-logo-link[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+// --- ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
+// ヘッダーの高さをオフセットとして設定 (h-17, 約68px)
+        const HEADER_HEIGHT = 68; 
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        // ヘッダーの高さ（約68px）を考慮してオフセット
-                        block: 'start', 
-                    });
-                    
-                    // モバイルメニューが開いている場合は閉じる
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
+        document.querySelectorAll('#main-nav-container a[href^="#"], #mobile-menu a[href^="#"], #header-logo-link[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            // ターゲット要素の上端Y座標を計算
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            
+            // ヘッダーの高さと、さらに少し余裕を持たせたオフセットを計算
+            const offsetPosition = targetPosition - HEADER_HEIGHT - 10; // 68px + 10px のオフセット
+
+            window.scrollTo({
+                top: offsetPosition, // 新しい位置へスクロール
+                behavior: 'smooth'
             });
-        });
+            
+            // モバイルメニューが開いている場合は閉じる (既存の処理を維持)
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+    });
+});
+
+
         
         // --- スクロールトップでのヘッダー背景色変更機能 (scrolledクラスの制御) ---
         const mainHeader = document.getElementById('main-nav-container');
