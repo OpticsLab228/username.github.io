@@ -164,12 +164,18 @@
         }
 
         /* === ナビゲーションバーの垂直方向の長さ調整 (新規追加) === */
-        /* 内側のコンテナの上下パディングを py-4 (1rem) から 3rem に拡大 */
+        /* 【修正点】モバイルサイズのパディングを縮小 (上下1.25rem = 20px) */
         header#main-nav-container div.section-container {
-           padding-top: 2.5rem !important;
-           padding-bottom: 2.5rem !important;
+           padding-top: 1.25rem !important;
+           padding-bottom: 1.25rem !important;
         }
-
+        /* PCサイズでは元のパディング (2.5rem = 40px) に戻す */
+        @media (min-width: 640px) {
+             header#main-nav-container div.section-container {
+                padding-top: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+        }
         header#main-nav-container.scrolled {
             background-color: rgba(0, 0, 0, 0.7) !important; 
             backdrop-filter: blur(8px) !important; 
