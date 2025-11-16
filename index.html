@@ -164,10 +164,10 @@
         }
 
         /* === ナビゲーションバーの垂直方向の長さ調整 (新規追加) === */
-        /* 【修正点】モバイルサイズのパディングを縮小 (上下1.25rem = 20px) */
+        /* 【モバイル修正】パディングをさらに縮小 (上下1.25rem -> 上下0.5rem = 8px) */
         header#main-nav-container div.section-container {
-           padding-top: 1.25rem !important;
-           padding-bottom: 1.25rem !important;
+           padding-top: 0.5rem !important;
+           padding-bottom: 0.5rem !important;
         }
         /* PCサイズでは元のパディング (2.5rem = 40px) に戻す */
         @media (min-width: 640px) {
@@ -197,7 +197,7 @@
         #header-logo-link img {
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
             /* 【新規追加】高さを90pxに拡大 */
-            height: 90px !important; 
+            height: 60px !important; 
         }
         
         /* === [調整] 既存のプライマリーカラーをより強く === */
@@ -217,7 +217,7 @@
             text-align: center;
             position: relative;
             background-attachment: fixed;
-            padding-top: 8px; 
+            padding-top: 0 !important; 
         }
         @media (min-width: 640px) {
             #home-hero {
