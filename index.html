@@ -163,6 +163,9 @@
             transition: background-color 0.3s, border-bottom 0.3s;
         }
 
+
+
+        
         /* === ナビゲーションバーの垂直方向の長さ調整 (新規追加) === */
         /* 【モバイル修正】パディングをさらに縮小 (上下1.25rem -> 上下0.5rem = 8px) */
         header#main-nav-container div.section-container {
@@ -176,6 +179,7 @@
                 padding-bottom: 2.5rem !important;
             }
         }
+
         header#main-nav-container.scrolled {
             background-color: rgba(0, 0, 0, 0.7) !important; 
             backdrop-filter: blur(8px) !important; 
@@ -307,7 +311,7 @@
 </header>
 
 
-<nav class="hidden fixed inset-x-0 top-[170px] bg-primary-blue bg-opacity-95 z-40 shadow-xl sm:hidden" id="mobile-menu">
+<nav class="hidden fixed inset-x-0 top-[75px] bg-primary-blue bg-opacity-95 z-40 shadow-xl sm:hidden" id="mobile-menu">
     <div class="flex flex-col p-4 space-y-2">
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#home-hero">ホーム</a>
         <a class="text-white hover:text-white transition duration-300 font-medium py-1 px-2" href="#news">新着情報</a> 
