@@ -166,9 +166,7 @@
             transition: background-color 0.3s, border-bottom 0.3s;
         }
 
-
-
-        
+  
         /* === ナビゲーションバーの垂直方向の長さ調整 (新規追加) === */
         /* 【モバイル修正】パディングをさらに縮小 (上下1.25rem -> 上下0.5rem = 8px) */
         header#main-nav-container div.section-container {
@@ -203,7 +201,6 @@
         /* === ロゴの視認性向上 (修正: サイズ拡大) === */
         #header-logo-link img {
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-            /* 【新規追加】高さを90pxに拡大 */
             height: 60px !important; 
         }
         
@@ -721,7 +718,7 @@
 
 // --- ナビゲーションリンクのクリックイベントにスムーズスクロールを追加 ---
 // ヘッダーの高さをオフセットとして設定 (h-17, 約68px)
-        const HEADER_HEIGHT = 170;  //68から170に修正
+        const HEADER_HEIGHT = 75; 
 
         document.querySelectorAll('#main-nav-container a[href^="#"], #mobile-menu a[href^="#"], #header-logo-link[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
