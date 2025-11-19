@@ -143,6 +143,38 @@
             font-style: normal !important;     
             text-align: center; 
             line-height: 1; 
+            
+            /* --- [新規追加] 虹色と斜め縞模様の文字装飾のためのCSS --- */
+            /* 文字を透明にする */
+            color: transparent !important; 
+            
+            /* 文字で背景をクリップして背景を文字色として表示 */
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            
+            /* 虹色のグラデーションと斜め縞模様のテクスチャを重ねる */
+            background-image: 
+                /* 1. 白い斜め縞模様 (半透明) */
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(255, 255, 255, 0.5) 0px, 
+                    rgba(255, 255, 255, 0.5) 3px,
+                    transparent 3px,
+                    transparent 8px  
+                ),
+                /* 2. 虹色のベースグラデーション */
+                linear-gradient(
+                    45deg,
+                    #ff0000 0%, #ff7f00 15%, #ffff00 30%, #00ff00 45%, #0000ff 60%, #4b0082 75%, #9400d3 90%, #ff0000 100%
+                ) !important;
+            
+            background-repeat: no-repeat;
+            
+            /* 縞模様を文字サイズに合わせて拡大・調整 */
+            background-size: 200% 200%; 
+            
+            /* 縞模様のフローアニメーション (オプション) */
+            animation: stripeFlow 15s linear infinite;
         }  
         @media (min-width: 640px) {
             #motto-text {
@@ -152,7 +184,19 @@
             }
         }
 
+        /* 縞模様のフローアニメーションの定義 (既存の@keyframes flowingRainbowの下に追加) */
+        @keyframes stripeFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: 200% 200%; }
+        }
 
+        /* モバイルでのみ行間を少し調整して見やすくする */
+        @media (max-width: 639px) {
+            #motto-text {
+                line-height: 1.2 !important; 
+            }
+        }
+        
         /* === ナビゲーションバーの強化（JavaScript制御版） === */
         header#main-nav-container {
             /* スクロールトップでも文字が消えないよう、初期背景を半透明の黒に設定 */
